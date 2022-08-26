@@ -1,19 +1,20 @@
 import { Router } from 'express';
+import Estabelecimento from '../models/estabelecimento';
+import {  } from '../controllers/estabelecimentoController';
 
 const routes = new Router();
 
-routes.get("/establishment", async (req, res) => {
-   const establishment = await establishment.findAll();
-   return res.json(establishment);
+// ESTABELECIMENTO
+routes.get("/estabelecimento", async (req, res) => {
+   const estabelecimento = await Estabelecimento.findAll();
+   return res.json(estabelecimento);
 });
-
-routes.get("/establishment/:id", async (req, res) => {
-   const user = await establishment.findByPk(req.params.id);
+routes.get("/estabelecimento/:id", async (req, res) => {
+   const user = await Estabelecimento.findByPk(req.params.id);
    return res.json(user);
 });
-
-routes.post("/establishmentRegister", async (req, res) => {
-   await Establishment.create(req.body)
+routes.post("/estabelecimento", async (req, res) => {
+   await Estabelecimento.create(req.body)
    try {
       return res.json({
          success: true,
@@ -26,5 +27,7 @@ routes.post("/establishmentRegister", async (req, res) => {
       })
    }
 });
+
+// FIM ESTABELECIMENTO
 
 export default routes;
