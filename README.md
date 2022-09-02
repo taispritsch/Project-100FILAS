@@ -3,6 +3,9 @@ npm start
 
 
 # ----------------------------MIGRATIONS----------------------------
+# criar uma nova migration
+npx sequelize-cli migration:generate --name create-nome
+
 # rodar todas migrations que ainda não foram executadas
 npx sequelize-cli db:migrate
 
