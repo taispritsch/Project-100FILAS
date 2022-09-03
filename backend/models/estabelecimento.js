@@ -6,7 +6,8 @@ const Estabelecimento = db.define('estabelecimentos', {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        FOREIGNKEY: true
     },
     nome: {
         type: Sequelize.STRING,
