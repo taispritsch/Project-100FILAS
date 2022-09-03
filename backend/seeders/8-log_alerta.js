@@ -2,30 +2,33 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('log_acessos', [
+    await queryInterface.bulkInsert('log_alertas', [
       {
-        local_acessado: 'Prédio 9',
+        local_acessado: 'Predio 9',
         horario: new Date(),
-        acao: 'comprar',
-        //token_id: 1,
+        acao: 'Tela de acesso',
+        mensagem_aviso: 'CPF inválido',
+        token_id: 1,
         estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        local_acessado: 'Prédio 11',
+        local_acessado: 'Predio 12',
         horario: new Date(),
-        acao: 'visualizar cardápio',
-        //token_id: 2,
+        acao: 'Tela de Pagamento',
+        mensagem_aviso: 'Senha inválida',
+        token_id: 2,
         estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        local_acessado: 'Prédio 9',
+        local_acessado: 'Predio 9',
         horario: new Date(),
-        acao: 'comprar',
-        //token_id: 3,
+        acao: 'Tela de Finalização',
+        mensagem_aviso: 'Pedido não realizado',
+        token_id: 1,
         estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -34,6 +37,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('log_acessos', null, {});
+    await queryInterface.bulkDelete('log_alertas', null, {});
   }
 };

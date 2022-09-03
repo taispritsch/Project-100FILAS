@@ -2,38 +2,26 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('log_acessos', {
+    await queryInterface.createTable('pedido_has_itens', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
       },
-      local_acessado: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      horario: {
-        type: Sequelize.DATE,
-        allowNull: false,
-      },
-      acao: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      /* token_id: {
+      pedido_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'tokens',
+          model: 'pedidos',
           key: 'id'
         }
-      }, */
-      estabelecimento_id: {
+      },
+      item_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'estabelecimentos',
+          model: 'itens',
           key: 'id'
         }
       },
@@ -49,6 +37,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('log_acessos');
+    await queryInterface.dropTable('pedido_has_itens');
   }
 };

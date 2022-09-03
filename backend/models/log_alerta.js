@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const Estabelecimento = require('./estabelecimento');
-//const Token = require('./token');
+const Token = require('./token');
 const db = require('../utils/connectionDB');
 const Log_alerta = db.define('log_alertas', {
   id: {
@@ -27,7 +27,7 @@ const Log_alerta = db.define('log_alertas', {
   },
 });
 
-//Token.hasOne(Log_alerta);
+Token.hasOne(Log_alerta);
 
 Estabelecimento.hasOne(Log_alerta);
 
