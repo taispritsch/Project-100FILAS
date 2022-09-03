@@ -1,0 +1,39 @@
+'use strict';
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('itens', [
+      {
+        nome: 'Sanduíche',
+        descricao: 'Sanduiche de frango, com tomate e alface',
+        valor: 5,
+        quantidade: 10,
+        estabelecimento_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Pão de Queijo',
+        descricao: 'Muito mais queijo',
+        valor: 2.50,
+        quantidade: 15,
+        estabelecimento_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Pastel de Frango',
+        descricao: 'Pastel de Frango a milanesa com catupiry',
+        valor: 7.20,
+        quantidade: 5,
+        estabelecimento_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ], {});
+  },
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('itens', null, {});
+  }
+};

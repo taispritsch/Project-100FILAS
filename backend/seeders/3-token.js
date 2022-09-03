@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('tokens', [{
-      localizacao: 'Prédio 3',
+      localizacao: 'Prédio 9',
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -17,10 +17,10 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }
-  ], {});
+    ], {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('tokens', null, {});
   }
 };

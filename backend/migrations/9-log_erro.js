@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable('log_erros', {
       id: {
         allowNull: false,
@@ -12,7 +12,7 @@ module.exports = {
       horario: {
         type: Sequelize.DATE,
         allowNull: false,
-        },
+      },
       acao: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -21,30 +21,30 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: 'tokens',
-            key: 'id'
+          model: 'tokens',
+          key: 'id'
         }
-    },
-    estabelecimento_id: {
+      },
+      estabelecimento_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: 'estabelecimentos',
-            key: 'id'
+          model: 'estabelecimentos',
+          key: 'id'
         }
-    },
-    createdAt: {
-      allowNull: false,
-      type: Sequelize.DATE
-    },
-    updatedAt: {
-      allowNull: false,
-      type: Sequelize.DATE
-    }
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
     });
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('log_erros');
   }
 };
