@@ -2,7 +2,6 @@
 
 const gulp = require("gulp");
 const sass = require('gulp-sass')(require('sass'));
-const sequence = require('gulp-sequence');
 const electron = require('electron-connect').server.create();
 
 sass.compiler = require("node-sass"); //Necessário para funcionar gulp-sass
@@ -23,7 +22,7 @@ function onElectron() {
 
 function compileSassToCss() {
   return gulp
-    .src("src/scss/main.scss")
+    .src("src/scss/**/*.scss")
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError)) // Converte Sass para CSS mimificado com gulp-sass
     .pipe(gulp.dest("src/www"));
 }
