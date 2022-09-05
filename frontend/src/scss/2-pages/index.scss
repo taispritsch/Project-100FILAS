@@ -1,0 +1,121 @@
+.index-section{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 60px 20px 10px 20px;
+   height: 100vh;
+   max-width: 97vw;
+   margin: 0 auto;
+
+   .index-title {
+      margin: 20px 0 ;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: rem(35);
+      color: var(--white);
+   }
+
+   .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+
+      
+      .card-establishment {
+         cursor: pointer;
+         width: 300px;
+         min-width: 300px;
+         height: 350px;
+         border-radius: 20px;
+         background-color: #f0f0f0;
+         
+         img {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            width: 100%;
+            height: 200px;
+         }
+
+         .establishment-data {
+            padding: 10px 20px;
+
+            h4 {
+               font-weight: bold;
+            }
+            
+            p {
+               margin: 5px 0 ;
+               font-weight: bold;
+               -webkit-box-orient: vertical;
+               overflow: hidden;
+               text-overflow: ellipsis;
+               display: -webkit-box;
+               -webkit-line-clamp: 2;
+            }
+            
+            span {
+               font-weight: bold;
+               color: var(--red);
+            }
+         }
+      }
+
+      .slick-track {
+         min-width: 300px;
+      }
+
+      button.slick-prev {
+         &:before {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: calc(50% - 20px);
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid var(--red);
+            border-left: 20px solid transparent;
+         }
+      }
+
+      button.slick-next {
+         &:before {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: calc(50% - 20px);
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-left: 20px solid var(--red);
+         }
+      }
+
+      li.slick-active {
+         button:before {
+            color: var(--red);
+            opacity: 1;
+         }
+      }
+      
+      li {
+         button:before {
+            opacity: 1;
+            color: var(--white);
+            font-size: rem(15);
+         }
+      }
+   }
+
+   #feedback-search {
+      display: none;
+      width: 100%;
+      text-align: center;
+      font-size: rem(23);
+      margin: 20px 0;
+      color: var(--white);
+   }
+}

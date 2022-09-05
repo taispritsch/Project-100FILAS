@@ -2,7 +2,6 @@
 
 // 0-ABSTRACTS
 @import "./0-abstracts/functions.scss";
-@import "./0-abstracts/mixins.scss";
 @import "./0-abstracts/variables.scss";
 
 // 1-BASE
@@ -11,3 +10,7 @@
 
 // 2-PAGES
 @import "./2-pages/index.scss";
+
+// 3-COMPONENTS
+@import "./3-components/button.scss";
+@import "./3-components/header.scss";
