@@ -1,44 +1,40 @@
 'use strict';
 
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('log_alertas', {
+  up(queryInterface, Sequelize) {
+    return queryInterface.createTable('pedidos', {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
       },
-      local_acessado: {
+      observacao: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      horario: {
-        type: Sequelize.DATE,
+      quantidade_item: {
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
-      acao: {
-        type: Sequelize.STRING,
+      valor_total: {
+        type: Sequelize.DOUBLE,
         allowNull: false,
       },
-      mensagem_aviso: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      token_id: {
+      item_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'tokens',
+          model: 'items',
           key: 'id'
         }
       },
-      estabelecimento_id: {
-        type: Sequelize.INTEGER,
+      item_nome: {
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
-          model: 'estabelecimentos',
-          key: 'id'
+          model: 'items',
+          key: 'nome'
         }
       },
       createdAt: {
@@ -52,7 +48,7 @@ module.exports = {
     });
   },
 
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('log_alertas');
+  down(queryInterface, Sequelize) {
+    return queryInterface.dropTable('pedidos');
   }
 };

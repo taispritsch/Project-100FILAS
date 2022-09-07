@@ -1,4 +1,22 @@
-const Sequelize = require('sequelize');
+const {Model, DataTypes} = require('sequelize');
+
+class token extends Model {
+  static init(sequelize) {
+    super.init({
+        localizacao: DataTypes.STRING,
+    },
+    {
+      sequelize
+    })
+  }
+}
+
+module.exports = token;
+
+
+
+
+/* const Sequelize = require('sequelize');
 const db = require('../utils/connectionDB');
 const Token = db.define('tokens', {
     id: {
@@ -14,4 +32,4 @@ const Token = db.define('tokens', {
     },
 });
 
-module.exports = Token;
+module.exports = Token; */
