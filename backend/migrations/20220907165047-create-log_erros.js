@@ -1,27 +1,19 @@
 'use strict';
 
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('log_alertas', {
+  up(queryInterface, Sequelize) {
+    return queryInterface.createTable('log_erros', {
       id: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-      },
-      local_acessado: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
       horario: {
         type: Sequelize.DATE,
         allowNull: false,
       },
       acao: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      mensagem_aviso: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -52,7 +44,7 @@ module.exports = {
     });
   },
 
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('log_alertas');
+  down(queryInterface, Sequelize) {
+    return queryInterface.dropTable('log_erros');
   }
 };

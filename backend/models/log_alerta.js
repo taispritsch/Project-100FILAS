@@ -1,34 +1,27 @@
-const Sequelize = require('sequelize');
-const Estabelecimento = require('./estabelecimento');
 const Token = require('./token');
-const db = require('../utils/connectionDB');
-const Log_alerta = db.define('log_alertas', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true
-  },
-  local_acessado: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  horario: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
-  acao: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  mensagem_aviso: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-});
+const Estabelecimento = require('./estabelecimento');
 
-Token.hasOne(Log_alerta);
+const { Model, DataTypes } = require('sequelize');
 
-Estabelecimento.hasOne(Log_alerta);
+class log_alerta extends Model {
+  static init(sequelize) {
+    super.init({
+      local_acessado: DataTypes.STRING,
+      horario: DataTypes.DATE,
+      acao: DataTypes.STRING,
+      mensagem_aviso: DataTypes.STRING,
+      token_id: DataTypes.INTEGER,
+      estabelecimento_id: DataTypes.INTEGER
+    },
+      {
+        sequelize
+      })
+  }
+}
 
-module.exports = Log_alerta;
+log_alerta.associate = function (models) {
+  log_alerta.belongTo(Token, { foreinKey: 'token_id', as: 'tokens' });
+  log_alerta.belongTo(Estabelecimento, { foreinKey: 'estabelecimento_id', as: 'estabelecimentos' });
+}
+
+module.exports = log_alerta;

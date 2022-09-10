@@ -1,29 +1,29 @@
 'use strict';
 
 module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('log_erros', {
+  up(queryInterface, Sequelize) {
+    return queryInterface.createTable('items', {
       id: {
-        allowNull: false,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      horario: {
-        type: Sequelize.DATE,
         allowNull: false,
+        primaryKey: true
       },
-      acao: {
+      nome: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      descricao: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      token_id: {
+      valor: {
+        type: Sequelize.DOUBLE,
+        allowNull: false,
+      },
+      quantidade: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'tokens',
-          key: 'id'
-        }
       },
       estabelecimento_id: {
         type: Sequelize.INTEGER,
@@ -44,7 +44,7 @@ module.exports = {
     });
   },
 
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('log_erros');
+  down(queryInterface, Sequelize) {
+    return queryInterface.dropTable('items');
   }
 };

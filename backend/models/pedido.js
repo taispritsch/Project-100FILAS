@@ -1,28 +1,22 @@
-const Sequelize = require('sequelize');
-const db = require('../utils/connectionDB');
 const Item = require('./item');
-const Pedido = db.define('pedidos', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true,
-    FOREIGNKEYS: true
-  },
-  observacao: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  quantidade_item: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  valor_total: {
-    type: Sequelize.DOUBLE,
-    allowNull: false,
-  },
-});
+const { Model, DataTypes } = require('sequelize');
 
-Item.hasMany(Pedido);
+class pedido extends Model {
+  static init(sequelize) {
+    super.init({
+      observacao: DataTypes.STRING,
+      quantidade_item: DataTypes.INTEGER,
+      valor_total: DataTypes.DOUBLE,
+      item_id: DataTypes.INTEGER
+    },
+      {
+        sequelize
+      })
+  }
+}
 
-module.exports = Pedido;
+pedido.associate = function (models) {
+  pedido.belongTo(Item, { foreinKey: 'item_id', as: 'items' });
+}
+
+module.exports = pedido;

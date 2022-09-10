@@ -5,28 +5,25 @@ module.exports = {
     await queryInterface.bulkInsert('pedidos', [
       {
         observacao: 'sem tomate',
-        item_id: 1,
-        item_nome: 'Sanduíche',
         quantidade_item: 1,
         valor_total: 5,
+        item_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        observacao: '',
-        item_id: 2,
-        item_nome: 'Pão de Queijo',
+        observacao: ' ',
         quantidade_item: 3,
         valor_total: 7.5,
+        item_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         observacao: 'Quero sache de maionese',
-        item_id: 3,
-        item_nome: 'Pastel de Frango',
-        quantidade_item: '1',
+        quantidade_item: 1,
         valor_total: 7.20,
+        item_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }
