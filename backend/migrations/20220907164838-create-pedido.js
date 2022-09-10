@@ -11,7 +11,7 @@ module.exports = {
       },
       observacao: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       quantidade_item: {
         type: Sequelize.INTEGER,
@@ -27,14 +27,6 @@ module.exports = {
         references: {
           model: 'items',
           key: 'id'
-        }
-      },
-      item_nome: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references: {
-          model: 'items',
-          key: 'nome'
         }
       },
       createdAt: {

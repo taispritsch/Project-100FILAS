@@ -1,17 +1,17 @@
-const {Router} = require('express');
+const {Router}                  = require('express');
 
 const estabelecimentoController = require('../controllers/estabelecimentoController');
-const itemController = require ('../controllers/itemController');
-const log_acessoController = require('../controllers/log_acessoController');
-const log_alertaController = require('../controllers/log_alertaController');
-const log_erroController = require('../controllers/log_erroController');
-const log_pedidoController = require('../controllers/log_pedidoController');
+const itemController            = require ('../controllers/itemController');
+const log_acessoController      = require('../controllers/log_acessoController');
+const log_alertaController      = require('../controllers/log_alertaController');
+const log_erroController        = require('../controllers/log_erroController');
+const log_pedidoController      = require('../controllers/log_pedidoController');
 const pedido_has_itemController = require('../controllers/pedido_has_itemController');
-const pedidoController = require('../controllers/pedidoController');
-const tokenController = require('../controllers/tokenController');
+const pedidoController          = require('../controllers/pedidoController');
+const tokenController           = require('../controllers/tokenController');
 
 
-const router = Router();
+const router                    = Router();
 
 
 // ESTABELECIMENTO
@@ -32,6 +32,33 @@ router.delete('/deletarItem/:id', itemController.deletarItem)
 // FIM ITEM
 
 
+// TOKEN
+router.post('/inserirToken', tokenController.inserirToken)
+router.put('/atualizarToken/:id', tokenController.atualizarToken)
+router.get('/listarTokens', tokenController.listarTokens)
+router.get('/listarToken/:id', tokenController.listarToken)
+router.delete('/deletarToken/:id', tokenController.deletarToken)
+// FIM TOKEN
+
+
+// PEDIDO
+router.post('/inserirPedido', pedidoController.inserirPedido)
+router.put('/atualizarPedido/:id', pedidoController.atualizarPedido)
+router.get('/listarPedidos', pedidoController.listarPedidos)
+router.get('/listarPedido/:id', pedidoController.listarPedido)
+router.delete('/deletarPedido/:id', pedidoController.deletarPedido)
+// FIM PEDIDO
+
+
+// PEDIDO HAS ITEM
+router.post('/inserirPedido_has_item', pedido_has_itemController.inserirPedido_has_item)
+router.put('/atualizarPedido_has_item/:id', pedido_has_itemController.atualizarPedido_has_item)
+router.get('/listarPedido_has_itens', pedido_has_itemController.listarPedido_has_itens)
+router.get('/listarPedido_has_item/:id', pedido_has_itemController.listarPedido_has_item)
+router.delete('/deletarPedido_has_item/:id', pedido_has_itemController.deletarPedido_has_item)
+// FIM PEDIDO HAS ITEM
+
+
 // LOG ACESSO
 router.post('/inserirLog_acesso', log_acessoController.inserirLog_acesso)
 router.put('/atualizarLog_acesso/:id', log_acessoController.atualizarLog_acesso)
@@ -39,6 +66,15 @@ router.get('/listarLog_acessos', log_acessoController.listarLog_acessos)
 router.get('/listarLog_acesso/:id', log_acessoController.listarLog_acesso)
 router.delete('/deletarLog_acesso/:id', log_acessoController.deletarLog_acesso)
 // FIM LOG ACESSO
+
+
+// LOG PEDIDO
+router.post('/inserirLog_pedido', log_pedidoController.inserirLog_pedido)
+router.put('/atualizarLog_pedido/:id', log_pedidoController.atualizarLog_pedido)
+router.get('/listarLog_pedidos', log_pedidoController.listarLog_pedidos)
+router.get('/listarLog_pedido/:id', log_pedidoController.listarLog_pedido)
+router.delete('/deletarLog_pedido/:id', log_pedidoController.deletarLog_pedido)
+// FIM LOG PEDIDO
 
 
 // LOG ALERTA
@@ -59,38 +95,4 @@ router.delete('/deletarLog_erro/:id', log_erroController.deletarLog_erro)
 // FIM LOG ERRO
 
 
-// LOG PEDIDO
-router.post('/inserirLog_pedido', log_pedidoController.inserirLog_pedido)
-router.put('/atualizarLog_pedido/:id', log_pedidoController.atualizarLog_pedido)
-router.get('/listarLog_pedidos', log_pedidoController.listarLog_pedidos)
-router.get('/listarLog_pedido/:id', log_pedidoController.listarLog_pedido)
-router.delete('/deletarLog_pedido/:id', log_pedidoController.deletarLog_pedido)
-// FIM LOG PEDIDO
-
-
-// LOG PEDIDO HAS ITEM
-router.post('/inserirPedido_has_item', pedido_has_itemController.inserirPedido_has_item)
-router.put('/atualizarPedido_has_item/:id', pedido_has_itemController.atualizarPedido_has_item)
-router.get('/listarPedido_has_itens', pedido_has_itemController.listarPedido_has_itens)
-router.get('/listarPedido_has_item/:id', pedido_has_itemController.listarPedido_has_item)
-router.delete('/deletarPedido_has_item/:id', pedido_has_itemController.deletarPedido_has_item)
-// FIM PEDIDO HAS ITEM
-
-
-// PEDIDO
-router.post('/inserirPedido', pedidoController.inserirPedido)
-router.put('/atualizarPedido/:id', pedidoController.atualizarPedido)
-router.get('/listarPedidos', pedidoController.listarPedidos)
-router.get('/listarPedido/:id', pedidoController.listarPedido)
-router.delete('/deletarPedido/:id', pedidoController.deletarPedido)
-// FIM PEDIDO
-
-
-// TOKEN
-router.post('/inserirToken', tokenController.inserirToken)
-router.put('/atualizarToken/:id', tokenController.atualizarToken)
-router.get('/listarTokens', tokenController.listarTokens)
-router.get('/listarToken/:id', tokenController.listarToken)
-router.delete('/deletarToken/:id', tokenController.deletarToken)
-// FIM TOKEN
 module.exports = router;

@@ -1,6 +1,7 @@
 const Log_acesso = require('../models/log_acesso');
 
 module.exports = {
+    //INSERIR LOG ACESSO
     async inserirLog_acesso(req, res) {
 
         try {
@@ -15,7 +16,7 @@ module.exports = {
         }
 
     },
-
+    //ATUALIZAR LOG ACESSO
     async atualizarLog_acesso(req, res) {
 
         try {
@@ -36,7 +37,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR UM LOG ACESSO
     async listarLog_acesso(req, res) {
         try {
             const { id } = req.params
@@ -53,7 +54,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR TODOS OS LOG ACESSO
     async listarLog_acessos(req, res) {
         try {
             const log_acessos = await Log_acesso.findAll()
@@ -69,7 +70,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //DELETAR LOG ACESSO
     async deletarLog_acesso(req, res) {
 
         try {

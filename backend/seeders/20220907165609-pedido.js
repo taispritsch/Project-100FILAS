@@ -7,8 +7,7 @@ module.exports = {
         observacao: 'sem tomate',
         quantidade_item: 1,
         valor_total: 5,
-        item_id: 13,
-        item_nome: 'Pizza',
+        item_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -16,8 +15,7 @@ module.exports = {
         observacao: ' ',
         quantidade_item: 3,
         valor_total: 7.5,
-        item_id: 13,
-        item_nome: 'Pizza',
+        item_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -25,8 +23,7 @@ module.exports = {
         observacao: 'Quero sache de maionese',
         quantidade_item: 1,
         valor_total: 7.20,
-        item_id: 15,
-        item_nome: 'Aaaa',
+        item_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }

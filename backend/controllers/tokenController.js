@@ -1,6 +1,7 @@
 const Token = require('../models/token');
 
 module.exports = {
+    //INSERIR TOKEN
     async inserirToken(req, res) {
 
         try {
@@ -15,7 +16,7 @@ module.exports = {
         }
 
     },
-
+    //ATUALIZAR TOKEN
     async atualizarToken(req, res) {
 
         try {
@@ -36,7 +37,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR TOKEN
     async listarToken(req, res) {
         try {
             const { id } = req.params
@@ -53,7 +54,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR TODOS OS TOKEN
     async listarTokens(req, res) {
         try {
             const tokens = await Token.findAll()
@@ -69,7 +70,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //DELETAR TOKEN
     async deletarToken(req, res) {
 
         try {

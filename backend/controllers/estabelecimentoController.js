@@ -1,11 +1,12 @@
 const Estabelecimento = require('../models/estabelecimento');
 
 module.exports = {
+    //INSERIR ESTABELECIMENTO
     async inserirEstabelecimento(req, res) {
 
         try {
             const { nome, senha, descricao, email, telefone, cnpj, hora_abrir, hora_fechar } = req.body
-            
+
             const estabelecimento = await Estabelecimento.findOne({ where: { email } })
 
             if (estabelecimento) {
@@ -23,7 +24,7 @@ module.exports = {
         }
 
     },
-
+    //ATUALIZAR ESTABELECIMENTO
     async atualizarEstabelecimento(req, res) {
 
         try {
@@ -44,8 +45,8 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
-    async listarEstabelecimento (req,res){
+    //LISTAR UM ESTABELECIMENTO
+    async listarEstabelecimento(req, res) {
         try {
             const { id } = req.params
             const estabelecimento = await Estabelecimento.findOne({ where: { id } })
@@ -61,7 +62,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR ESTABELECIMENTOS
     async listarEstabelecimentos(req, res) {
         try {
             const estabelecimentos = await Estabelecimento.findAll()
@@ -77,19 +78,19 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //DELETAR ESTABELECIMENTO
     async deletarEstabelecimento(req, res) {
 
         try {
             const { id } = req.params
-            
+
             const estabelecimento = await Estabelecimento.findOne({ where: { id } })
 
             if (!estabelecimento) {
                 res.status(401).json({ message: "Estabelecimento não encontrado." });
             }
             else {
-                await Estabelecimento.destroy( { where: { id } })
+                await Estabelecimento.destroy({ where: { id } })
 
                 res.status(200).json({ ok: true });
             }

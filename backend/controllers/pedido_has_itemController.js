@@ -1,6 +1,7 @@
 const Pedido_has_item = require('../models/pedido_has_item');
 
 module.exports = {
+    //INSERIR PEDIDO HAS ITEM
     async inserirPedido_has_item(req, res) {
 
         try {
@@ -15,7 +16,7 @@ module.exports = {
         }
 
     },
-
+    //ATUALIZAR PEDIDO HAS ITEM
     async atualizarPedido_has_item(req, res) {
 
         try {
@@ -36,7 +37,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR UM PEDIDO HAS ITEM
     async listarPedido_has_item(req, res) {
         try {
             const { id } = req.params
@@ -53,7 +54,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR TODOS OS PEDIDO HAS ITEM
     async listarPedido_has_itens(req, res) {
         try {
             const pedido_has_itens = await Pedido_has_item.findAll()
@@ -69,7 +70,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //DELETAR PEDIDO HAS ITEM
     async deletarPedido_has_item(req, res) {
 
         try {

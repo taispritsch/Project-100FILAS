@@ -1,6 +1,7 @@
 const Log_pedido = require('../models/log_pedido');
 
 module.exports = {
+    //INSERIR LOG PEDIDO
     async inserirLog_pedido(req, res) {
 
         try {
@@ -15,7 +16,7 @@ module.exports = {
         }
 
     },
-
+    //ATUALIZAR LOG PEDIDO
     async atualizarLog_pedido(req, res) {
 
         try {
@@ -36,7 +37,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR UM LOG PEDIDO
     async listarLog_pedido(req, res) {
         try {
             const { id } = req.params
@@ -53,7 +54,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR TODOS OS LOG PEDIDO
     async listarLog_pedidos(req, res) {
         try {
             const log_pedidos = await Log_pedido.findAll()
@@ -69,7 +70,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //DELETAR LOG PEDIDO
     async deletarLog_pedido(req, res) {
 
         try {

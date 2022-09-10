@@ -1,6 +1,7 @@
 const Log_erro = require('../models/log_erro');
 
 module.exports = {
+    //INSERIR LOG ERRO
     async inserirLog_erro(req, res) {
 
         try {
@@ -15,7 +16,7 @@ module.exports = {
         }
 
     },
-
+    //ATUALIZAR LOG ERRO
     async atualizarLog_erro(req, res) {
 
         try {
@@ -36,7 +37,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR UM LOG ERRO
     async listarLog_erro(req, res) {
         try {
             const { id } = req.params
@@ -53,7 +54,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR TODOS OS LOG ERRO
     async listarLog_erros(req, res) {
         try {
             const log_erros = await Log_erro.findAll()
@@ -69,7 +70,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //DELETAR LOG ERRO
     async deletarLog_erro(req, res) {
 
         try {

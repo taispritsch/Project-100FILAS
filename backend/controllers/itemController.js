@@ -1,6 +1,7 @@
 const Item = require('../models/item');
 
 module.exports = {
+    //INSERIR ITEM
     async inserirItem(req, res) {
 
         try {
@@ -15,7 +16,7 @@ module.exports = {
         }
 
     },
-
+    //ATUALIZAR ITEM
     async atualizarItem(req, res) {
 
         try {
@@ -36,7 +37,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR UM ITEM
     async listarItem(req, res) {
         try {
             const { id } = req.params
@@ -53,7 +54,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //LISTAR ITENS
     async listarItens(req, res) {
         try {
             const itens = await Item.findAll()
@@ -69,7 +70,7 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
-
+    //DELETAR ITEM
     async deletarItem(req, res) {
 
         try {

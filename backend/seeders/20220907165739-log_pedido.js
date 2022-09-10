@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('log_pedidos', [{
       pedido_id: 1,
       token_id: 1,
@@ -20,10 +20,10 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date()
     }
-  ], {});
+    ], {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('log_pedidos', null, {});
   }
 };
