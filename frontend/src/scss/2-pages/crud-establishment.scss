@@ -1,0 +1,58 @@
+.establishment-section{
+    background-color: #222222;
+    height: 100%;
+
+    .crud-title{
+        padding: 35px;
+        font-size: 25px;
+        color: white;
+        text-shadow: 
+                   -1px -1px 0px #BA0505, 
+                   -1px 1px 0px #BA0505,                    
+                    1px -1px 0px #BA0505,                  
+                    1px 0px 0px #BA0505;
+    }
+
+    .form{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .inputs{
+            display: flex;
+            margin: 10px;
+            width: 50%;
+
+            label{
+                vertical-align: top;
+                color: white;
+                font-size: 22px;
+                width: 34%!important;
+                text-align: end;
+                margin-right: 10px;
+            }
+            
+            input, textarea{
+                border-radius: 20px;
+                height: 30px;
+                width: 60%;
+                background-color: #D9D9D9;
+            }
+
+            .descripton{
+                height: 90px;
+            }
+
+            .btn{
+                background-color: #BA0505;
+                color: white;
+                border-radius: 20px;
+                border: none;
+                width: 150px;
+                height: 35px;
+                margin: 45px;
+            }
+        }
+    }
+}
+

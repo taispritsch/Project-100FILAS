@@ -7,3 +7,14 @@
    border-radius: 30px;
    background-color: var(--dark-red);
 }
+
+.btn::after{
+   content: "";
+   position: absolute;
+   border: 1px solid --dark-red;
+   border-radius: 30px;
+   background-color: transparent;
+   width: 237px;
+   height: 40px;
+   
+}
