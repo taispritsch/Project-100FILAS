@@ -21,39 +21,43 @@
 
    <section class="establishment-section">
     <p class="crud-title">CADASTRO DE ESTABELECIMENTO</p>
-    <form class="form">
+    <form class="form" id="establishmentForm">
         <div class="inputs">
             <label for="nome">Nome:</label>
-            <input type="search" id="nome" />
+            <input type="search" id="nome" name="nome" required/>
+        </div>
+        <div class="inputs">
+            <label for="senha">Senha</label>
+            <input type="search" id="senha" name="senha" required/>
         </div>
         <div class="inputs">
             <label for="email">E-mail:</label>
-            <input type="search" id="email" />
+            <input type="search" id="email" name="email" required/>
         </div>
         <div class="inputs">
             <label for="msg">Telefone:</label>
-            <input type="search" id="fone"></input>
+            <input type="search" id="telefone" name="telefone" required></input>
         </div>
         <div class="inputs">
             <label for="msg">CNPJ:</label>
-            <input type="search" id="cnpj"></input>
+            <input type="search" id="cnpj" name="cnpj" required></input>
         </div>
         <div class="inputs">
-            <label for="msg">Descrição:</label>
-            <textarea type="textarea" id="desc" class="descripton"></textarea>
+            <label for="descricao">Descrição:</label>
+            <textarea type="textarea" id="descricao" class="descricao" name="descricao" required></textarea>
         </div>
         <div class="inputs">
-            <label for="msg">Horário de Abertura:</label>
-            <input type="search" id="init"></input>
+            <label for="hora_abrir">Horário de Abertura:</label>
+            <input type="search" id="hora_abrir" name="hora_abrir" required></input>
         </div>
         <div class="inputs">
-            <label for="msg">Horário de Fechamento:</label>
-            <input type="search" id="end"></input>
+            <label for="hora_fechar">Horário de Fechamento:</label>
+            <input type="search" id="hora_fechar" name="hora_fechar" required></input>
         </div>
 
         <div class="buttons">
             <button type="button" class="cancel btn">Cancelar</button>
-            <button type="button" class="save btn" onclick="createEstablishment()">Inserir</button>
+            <button type="submit" class="save btn">Inserir</button>
         </div>
     </form>
 

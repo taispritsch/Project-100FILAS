@@ -1,6 +1,6 @@
 // BUSCA OS ESTABELECIMENTOS DO BANCO
 async function getEstablishment() {
-   let url = 'http://localhost:8080/estabelecimento';
+   let url = 'http://localhost:8080/listarEstabelecimentos';
    try {
        let res = await fetch(url);
        return await res.json();
@@ -13,7 +13,7 @@ async function getEstablishment() {
 async function renderEstablishment() {
    let establishment = await getEstablishment();
    let html = '';
-   establishment.map(establishment => {
+   establishment.estabelecimentos.map(establishment => {
        let htmlSegment = `
          <div class="card-establishment" id="${establishment.id}">
             <img src="../../assets/teste.jpg" alt="teste" />
