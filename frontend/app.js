@@ -9,6 +9,7 @@ const createWindow = () => {
    })
    win.webContents.openDevTools()
    
+   // win.loadFile('./src/pages/index/index.html')
    win.loadFile('./src/pages/estabilishment/establishment.html')
 }
 
