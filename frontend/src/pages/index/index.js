@@ -1,5 +1,7 @@
-// BUSCA OS ESTABELECIMENTOS DO BANCO
-async function getEstablishment() {
+const {ipcRenderer} = require('electron');
+
+//BUSCA OS ESTABELECIMENTOS DO BANCO
+async function getEstablishments() {
    let url = 'http://localhost:8080/listarEstabelecimentos';
    try {
        let res = await fetch(url);
@@ -9,13 +11,23 @@ async function getEstablishment() {
    }
 }
 
+async function getEstablishment(id){
+   let url = 'http://localhost:8080/listarEstabelecimento/'+id;
+   try {
+       let res = await fetch(url);
+       return await res.json();
+   } catch (error) {
+       console.log(error);
+   }
+}
+
 // RENDERIZA OS ESTABELECIMENTOS EM TELA
-async function renderEstablishment() {
-   let establishment = await getEstablishment();
+async function renderEstablishments() {
+   let establishments = await getEstablishments();
    let html = '';
-   establishment.estabelecimentos.map(establishment => {
+   establishments.estabelecimentos.map(establishment => {
        let htmlSegment = `
-         <div class="card-establishment" id="${establishment.id}">
+         <div class="card-establishment" data-id="${establishment.id}">
             <img src="../../assets/teste.jpg" alt="teste" />
             <div class="establishment-data">
                <h4>Nome:  <span>${establishment.nome}</span></h4>
@@ -31,6 +43,12 @@ async function renderEstablishment() {
    let container = document.querySelector('.card-container');
    container.innerHTML = html;
 
+   let establishmentCards = document.getElementsByClassName('card-establishment');
+   for(let count = 0; count < establishmentCards.length; count++) {
+      establishmentCards[count].addEventListener('click', e => {
+         navigateToEstablishment(e.path[1].getAttribute('data-id'));
+      })
+   }
    // CRIA O CARROSSEL COM ESTABELECIMENTOS
    $('.card-container').slick({
       dots: true,
@@ -39,20 +57,24 @@ async function renderEstablishment() {
       slidesToScroll: 3
    });
 }
+renderEstablishments()
 
-renderEstablishment()
+async function navigateToEstablishment(id){
+   let establishment = await getEstablishment(id);
+   ipcRenderer.send('establishment', establishment);
+}
 
 // REALIZA O FILTRO POR ESTABELECIMENTO
 let search = document.getElementById('search');
 let feedbackSearch = document.getElementById('feedback-search');
-let cardContainer = document.getElementsByClassName('card-container')[0]
+let cardContainer = document.getElementsByClassName('card-container')[0];
 search.addEventListener('keyup', e => {
 	Array.from(document.getElementsByClassName('card-establishment')).map( item => {
       let establishmentByName = item.children[1].children[0].children[0];
 		let hasMatch = establishmentByName.innerText.toLowerCase().includes(search.value);
-		item.style.display = hasMatch ? 'unset': 'none'
-      feedbackSearch.style.display = hasMatch ? 'none' : 'block'
-      cardContainer = hasMatch ? 'none' : 'block'
+		item.style.display = hasMatch ? 'unset': 'none';
+      feedbackSearch.style.display = hasMatch ? 'none' : 'block';
+      cardContainer = hasMatch ? 'none' : 'block';
 	})
 })
 
@@ -65,5 +87,6 @@ search.addEventListener('focusout', e => {
 search.addEventListener('focus', e => {
    e.target.value.length > 0 ? e.target.style.color = 'black' : '';
 })
+
 
 
