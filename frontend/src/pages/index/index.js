@@ -62,6 +62,7 @@ renderEstablishments()
 async function navigateToEstablishment(id){
    let establishment = await getEstablishment(id);
    ipcRenderer.send('establishment', establishment);
+   window.location.href = '../products/products.html';
 }
 
 // REALIZA O FILTRO POR ESTABELECIMENTO

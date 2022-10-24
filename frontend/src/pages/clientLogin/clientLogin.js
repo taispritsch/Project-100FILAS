@@ -6,4 +6,5 @@ formClient.addEventListener('submit', (e) => {
    const data = new FormData(e.target);
    const dataJSON = Object.fromEntries(data.entries());
    ipcRenderer.send('nextStep', dataJSON);
+   window.location.href = '../index/index.html';
 });

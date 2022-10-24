@@ -2,44 +2,33 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 
 const establishmentScreen = 'listOfEstablishments'
 const establishmentProducts = 'establishment'
-
+var mainScreen;
+function init(){
+   mainScreen = new BrowserWindow({
+      width: 1400,
+      height: 720,
+      webPreferences: {nodeIntegration: true}
+   })
+   mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
+}
 // modify your existing createWindow() function
 const createWindow = (screenName, content) => {
    // TESTAR O SWITCH CASE PARA O LOADFILE!!!!!
    switch (screenName){
       case establishmentScreen:
-         const listOfEstablishmentWindow = new BrowserWindow({
-            width: 1400,
-            height: 720,
-            webPreferences: {nodeIntegration: true},
-            show: true
-         })
-         listOfEstablishmentWindow.openDevTools();
-         listOfEstablishmentWindow.loadFile('./src/pages/index/index.html')
+         // TELA INDEX AQUI
          break;
       case establishmentProducts:
-         const listOfProductsInEstablishment = new BrowserWindow({
-            width: 1400,
-            height: 720,
-            webPreferences: {nodeIntegration: true},
-            show: true
-         })
-         listOfProductsInEstablishment.openDevTools();
-         listOfProductsInEstablishment.loadFile('./src/pages/products/products.html')
-         listOfProductsInEstablishment.webContents.on('did-finish-load', e => {
-         listOfProductsInEstablishment.webContents.send("establishment", content)
+         mainScreen.loadFile('./src/pages/products/products.html')
+         mainScreen.webContents.on('did-finish-load', e => {
+         mainScreen.webContents.send("establishment", content)
          })
          break;
       default:
-         const loginClientWindow = new BrowserWindow({
-            width: 1400,
-            height: 720,
-            webPreferences: {nodeIntegration: true}
-         })
-         loginClientWindow.loadFile('./src/pages/clientLogin/clientLogin.html')
-         // loginClientWindow.webContents.openDevTools();
+         mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
          break;
-   }
+      }
+      mainScreen.openDevTools();
 }
 
 ipcMain.on('nextStep', (e, args) => {
@@ -49,9 +38,7 @@ ipcMain.on('nextStep', (e, args) => {
 })
 
 ipcMain.on('establishment', (e, args) => {
-   if(args.estabelecimento){
-      createWindow(establishmentProducts, args.estabelecimento);
-   }
+   createWindow(establishmentProducts, args.estabelecimento);
 })
 
 app.on('window-all-closed', () => {
@@ -59,9 +46,9 @@ app.on('window-all-closed', () => {
 })
 
 app.whenReady().then(() => {
-   createWindow()
+   init()
 
    app.on('activate', () => {
-      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+      if (BrowserWindow.getAllWindows().length === 0) init()
    })
 })
