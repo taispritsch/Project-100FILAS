@@ -1,26 +1,54 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 
-// modify your existing createWindow() function
-const createWindow = () => {
-   const win = new BrowserWindow({
+const establishmentScreen = 'listOfEstablishments'
+const establishmentProducts = 'establishment'
+var mainScreen;
+function init(){
+   mainScreen = new BrowserWindow({
       width: 1400,
       height: 720,
-      webPreferences: {}
+      webPreferences: {nodeIntegration: true}
    })
-   win.webContents.openDevTools()
-   
-   win.loadFile('./src/pages/index/index.html')
+   mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
+}
+// modify your existing createWindow() function
+const createWindow = (screenName, content) => {
+   // TESTAR O SWITCH CASE PARA O LOADFILE!!!!!
+   switch (screenName){
+      case establishmentScreen:
+         // TELA INDEX AQUI
+         break;
+      case establishmentProducts:
+         mainScreen.loadFile('./src/pages/products/products.html')
+         mainScreen.webContents.on('did-finish-load', e => {
+         mainScreen.webContents.send("establishment", content)
+         })
+         break;
+      default:
+         mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
+         break;
+      }
+      mainScreen.openDevTools();
 }
 
+ipcMain.on('nextStep', (e, args) => {
+   if(args.nome){
+      createWindow(establishmentScreen)
+   }
+})
+
+ipcMain.on('establishment', (e, args) => {
+   createWindow(establishmentProducts, args.estabelecimento);
+})
 
 app.on('window-all-closed', () => {
    if (process.platform !== 'darwin') app.quit()
 })
 
 app.whenReady().then(() => {
-   createWindow()
+   init()
 
    app.on('activate', () => {
-      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+      if (BrowserWindow.getAllWindows().length === 0) init()
    })
 })

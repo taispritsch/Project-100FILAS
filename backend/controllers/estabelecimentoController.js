@@ -3,7 +3,7 @@ const Estabelecimento = require('../models/estabelecimento');
 module.exports = {
     //INSERIR ESTABELECIMENTO
     async inserirEstabelecimento(req, res) {
-
+        console.log(req.body)
         try {
             const { nome, senha, descricao, email, telefone, cnpj, hora_abrir, hora_fechar } = req.body
 

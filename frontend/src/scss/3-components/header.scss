@@ -7,6 +7,7 @@ header {
    justify-content: space-between;
    padding: 10px 30px 10px 10px;
    background-color: var(--red);
+   z-index: 999;
    
    img {
       width: rem(100);
