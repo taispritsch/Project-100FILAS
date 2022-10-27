@@ -19,15 +19,15 @@ ipcRenderer.on('establishment', (e, args) => {
             let htmlSegment = `
                 <div class="card-product" id="${itens.id}">
                     <img class="img-product" src="../../assets/produtos/pastel.png" alt="Pastel de Frango" />
-                    <div class="info">
-                        <div class"info-item">
-                            <h2><span>${itens.nome}</span></h2>
-                            <div class="item-value">
-                                <p>R$<span>${itens.valor}</span></p>
-                            </div>
+                    <div class="info">                    
+                        <h6>${itens.nome}</h6>
+                        <span>R$ ${itens.valor}</span>                        
+                        <p>${itens.descricao}</p>
+                        <div class=button-area>
+                            <button onclick="decrease(${itens.id})" type="button">-</button>
+                            <p id="item${itens.id}">0</p>
+                            <button onclick="increase(${itens.id})" type="button">+</button>
                         </div>
-                        <p class"description"><span>${itens.descricao}</span></p>
-                        <button type="button" class="btn">PEDIR</button>
                     </div>
                 </div>`;
     
@@ -36,6 +36,51 @@ ipcRenderer.on('establishment', (e, args) => {
     
         let container = document.querySelector('.card-product-container');
         container.innerHTML = html;
+        getListItem(itens);
     }    
     renderProducts(args.id);
+
 })
+let listItem;
+function decrease(id){
+    let count = document.getElementById('item'+id);
+    if(+count.textContent > 0){
+        count.innerHTML = +count.textContent-1;
+        let item = listItem.itens.find(item => item.id === id)
+        fillShopCart(item, +count.textContent);
+    } 
+}
+
+function increase(id){
+    let count = document.getElementById('item'+id);
+    count.innerHTML = +count.textContent+1;
+    let item = listItem.itens.find(item => item.id === id)
+    fillShopCart(item, +count.textContent);
+}
+
+let list = [];
+function fillShopCart(item, amount){
+    if(amount === 0){
+        list = list.filter(function (a) {
+            return a.id !== item.id
+        });
+    } else {
+        list.push(item);
+        list = list.filter(function (a) {
+            return !this[JSON.stringify(a.id)] && (this[JSON.stringify(a.id)] = true);
+        }, Object.create(null))
+        list.find(e => {
+            e.id == item.id ? e.quantidade = amount : '';
+        })
+    } 
+    updateFloatList(list.length);
+}
+
+function updateFloatList(num){
+    document.getElementsByClassName('float-list-cart')[0].innerHTML = num;
+}
+
+function getListItem(list){
+    listItem = list;
+}
+

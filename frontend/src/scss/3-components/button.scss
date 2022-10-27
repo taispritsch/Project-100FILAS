@@ -6,6 +6,11 @@
    height: 40px;
    border-radius: 30px;
    background-color: var(--dark-red);
+   transition: all 0.5s
+}
+
+.btn:hover {
+   background-color: var(--light-red);
 }
 
 .btn::after{
@@ -17,4 +22,8 @@
    width: 237px;
    height: 40px;
    
+}
+
+.btn-link {
+   padding: 0.5rem 6rem;
 }

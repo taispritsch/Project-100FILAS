@@ -22,16 +22,15 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      padding: 30px;
 
       
       .card-establishment {
          cursor: pointer;
          width: 300px;
          min-width: 300px;
+         padding: 0 20px;
          height: 350px;
          border-radius: 20px;
-         background-color: #f0f0f0;
          
          img {
             border-top-left-radius: 20px;
@@ -42,6 +41,9 @@
 
          .establishment-data {
             padding: 10px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: #f0f0f0;
 
             h4 {
                font-weight: bold;
