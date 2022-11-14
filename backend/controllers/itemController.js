@@ -70,6 +70,23 @@ module.exports = {
             res.status(400).json({ error });
         }
     },
+    //LISTAR ITENS POR ESTABELECIMENTO
+    async listarItensPorEstabelecimento(req, res) {
+        try {
+            const { estabelecimento_id } = req.params
+            const itens = await Item.findAll({ where: { estabelecimento_id } })
+
+            if (!itens) {
+                res.status(401).json({ message: "Não existe itens cadastrados." });
+            }
+            else {
+                res.status(200).json({ itens });
+            }
+        }
+        catch (error) {
+            res.status(400).json({ error });
+        }
+    },
     //DELETAR ITEM
     async deletarItem(req, res) {
 
