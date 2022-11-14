@@ -28,6 +28,7 @@ router.post('/inserirItem', itemController.inserirItem)
 router.put('/atualizarItem/:id', itemController.atualizarItem)
 router.get('/listarItens', itemController.listarItens)
 router.get('/listarItem/:id', itemController.listarItem)
+router.get('/listarItensPorEstabelecimento/:estabelecimento_id', itemController.listarItensPorEstabelecimento)
 router.delete('/deletarItem/:id', itemController.deletarItem)
 // FIM ITEM
 
