@@ -9,7 +9,7 @@ function init(){
       height: 720,
       webPreferences: {nodeIntegration: true}
    })
-   mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
+   mainScreen.loadFile('./src/pages/homepage/homepage.html')
 }
 // modify your existing createWindow() function
 const createWindow = (screenName, content) => {

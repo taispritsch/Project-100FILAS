@@ -1,0 +1,55 @@
+body{
+    background-color: #222222;
+    background-image: url('../../assets/background/home.png');
+
+    .btn-sobreNos{
+        /* position: absolute; */
+        /* right: 20px; */
+        margin: 20px;
+        width: 200px;
+        height: 50px;
+        background-color: #A00404;
+        border-color: #A00404;
+        border-radius: 30px;
+        float: right;
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    /* .material-symbols-outlined {
+      color: black;
+      margin-right: 20px;
+      font-size: 45px;
+    } */
+
+    .home{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      .logo{
+        width: 40%;
+    }
+    
+    .buttonPedir{
+        width: 700px;
+        height: 70px;
+        background-color: #FF4328;
+        border-color: #FF4328;
+        border-radius: 30px;
+        color: white;
+        font-size: 26px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    
+    .buttonPedir:hover{
+        background-color: #A00404;
+        border-color: #A00404;
+        transition: 0.5s;
+    }
+  }
+}
