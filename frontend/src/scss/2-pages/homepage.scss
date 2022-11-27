@@ -1,21 +1,26 @@
 body{
     background-color: #222222;
-    background-image: url('../../assets/background/home.png');
+    /* background-image: url('../../assets/background/home.png'); */
 
     .btn-sobreNos{
-        /* position: absolute; */
-        /* right: 20px; */
-        margin: 20px;
-        width: 200px;
-        height: 50px;
+        position: absolute;
         background-color: #A00404;
         border-color: #A00404;
         border-radius: 30px;
-        float: right;
         color: white;
         font-size: 22px;
         font-weight: 600;
         cursor: pointer;
+        margin-top: 20px;
+        float: right;
+        right: 80px;
+        width: 200px;
+        height: 50px;
+    }
+
+    .btn-sobreNos:hover{
+      background-color: #e04131;
+      font-weight: 600;
     }
     
     /* .material-symbols-outlined {

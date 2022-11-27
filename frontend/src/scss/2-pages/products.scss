@@ -116,6 +116,28 @@
         }
     }
 
+    .btn-link{
+        float: left;
+    }
+
+    .confirm{
+        width: 237px;
+        height: 40px;
+        font-weight: bold;
+        font-size: rem(18);
+        padding: 10px 20px;
+        border-radius: 20px;
+        text-align: center;
+        float: right;
+        background-color: var(--red);
+        color: var(--white);
+        transition: all 0.5s;
+    }
+
+    .confirm:hover{
+        background-color: #e04131;
+    }
+
     .float-list-cart {
         position: absolute;
         top: 150px;

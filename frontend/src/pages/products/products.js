@@ -66,6 +66,7 @@ function fillShopCart(item, amount){
         });
     } else {
         list.push(item);
+
         list = list.filter(function (a) {
             return !this[JSON.stringify(a.id)] && (this[JSON.stringify(a.id)] = true);
         }, Object.create(null))
@@ -82,5 +83,16 @@ function updateFloatList(num){
 
 function getListItem(list){
     listItem = list;
+    /* console.log(listItem) */
 }
+
+function getListarPedido(){
+    let array;
+    array = listItem;
+    console.log(array);
+
+    return array;
+}
+
+
 
