@@ -9,6 +9,7 @@ module.exports = {
         valor: 5,
         quantidade: 10,
         estabelecimento_id: 1,
+        tipo_item: 'Salgado',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -18,6 +19,7 @@ module.exports = {
         valor: 2.50,
         quantidade: 15,
         estabelecimento_id: 1,
+        tipo_item: 'Bebida',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -27,6 +29,97 @@ module.exports = {
         valor: 7.20,
         quantidade: 5,
         estabelecimento_id: 1,
+        tipo_item: 'Doce',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Fatia Pizza Calabresa',
+        descricao: 'Bastante Calabresa',
+        valor: 5.50,
+        quantidade: 10,
+        estabelecimento_id: 1,
+        tipo_item: 'Salgado',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Croissant de Calabresa',
+        descricao: 'Muito Macio e Recheado',
+        valor: 4,
+        quantidade: 10,
+        estabelecimento_id: 2,
+        tipo_item: 'Salgado',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Salgadinho de Bacon',
+        descricao: 'Feito com ingredientes de extrema qualidade',
+        valor: 3,
+        quantidade: 20,
+        estabelecimento_id: 3,
+        tipo_item: 'Salgado',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Doce de Banana',
+        descricao: 'Doce feito com Bananas da Terra',
+        valor: 2,
+        quantidade: 30,
+        estabelecimento_id: 1,
+        tipo_item: 'Doce',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Brigadeiro com M&M',
+        descricao: 'Doce feito com pó de cacau meio amargo e M&Ms',
+        valor: 3,
+        quantidade: 22,
+        estabelecimento_id: 2,
+        tipo_item: 'Doce',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Fatia de Torta de Bolacha',
+        descricao: 'Torta feito com bolacha maria, chocolate branco e doce de leite',
+        valor: 6,
+        quantidade: 15,
+        estabelecimento_id: 3,
+        tipo_item: 'Doce',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Coca Cola 1L',
+        descricao: 'Bebida gaseificada',
+        valor: 10,
+        quantidade: 8,
+        estabelecimento_id: 1,
+        tipo_item: 'Bebida',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Suco de Abacaxi com Hortelã',
+        descricao: 'Suco com polpa de abacaxi e folhas de hortelã',
+        valor: 7,
+        quantidade: 20,
+        estabelecimento_id: 2,
+        tipo_item: 'Bebida',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        nome: 'Limonada Suiça',
+        descricao: 'Feito com limão Siciliano e Açucar do Himalaia',
+        valor: 7,
+        quantidade: 10,
+        estabelecimento_id: 3,
+        tipo_item: 'Bebida',
         createdAt: new Date(),
         updatedAt: new Date()
       }

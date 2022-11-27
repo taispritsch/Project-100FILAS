@@ -20,7 +20,43 @@ module.exports = {
         item_id: 3,
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        pedido_id: 4,
+        item_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        pedido_id: 5,
+        item_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        pedido_id: 6,
+        item_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        pedido_id: 7,
+        item_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        pedido_id: 8,
+        item_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        pedido_id: 9,
+        item_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ], {});
   },
 

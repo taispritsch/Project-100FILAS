@@ -9,6 +9,7 @@ const log_pedidoController      = require('../controllers/log_pedidoController')
 const pedido_has_itemController = require('../controllers/pedido_has_itemController');
 const pedidoController          = require('../controllers/pedidoController');
 const tokenController           = require('../controllers/tokenController');
+const imagemController          = require('../controllers/imagemController');
 
 
 const router                    = Router();
@@ -94,6 +95,13 @@ router.get('/listarLog_erros', log_erroController.listarLog_erros)
 router.get('/listarLog_erro/:id', log_erroController.listarLog_erro)
 router.delete('/deletarLog_erro/:id', log_erroController.deletarLog_erro)
 // FIM LOG ERRO
+
+// IMAGEM
+router.post('/inserirImagem', imagemController.inserirImagem)
+router.put('/atualizarImagem/:id', imagemController.atualizarImagem)
+router.get('/listarImagem/:id', imagemController.listarImagem)
+router.delete('/deletarImagem/:id', imagemController.deletarImagem)
+// FIM IMAGEM
 
 
 module.exports = router;
