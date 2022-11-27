@@ -1,0 +1,74 @@
+.create-product-section {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   padding: 6rem 6rem;
+
+   .product-title{
+      font-weight: bold;
+      font-size: 2rem;
+      text-align: center;
+      color: white;
+   }
+
+   .form{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 80%;
+      margin-top: 2rem;
+
+      .inputs{
+         display: flex;
+         margin: 10px;
+         width: 100%;
+
+         label{
+            vertical-align: top;
+            color: white;
+            font-size: 22px;
+            width: 21%!important;
+            text-align: end;
+            margin-right: 10px;
+         }
+         
+         input, textarea{
+            border: none;
+            border-radius: 20px;
+            height: 30px;
+            width: 60%;
+            padding: 10px;
+         }
+
+         textarea {
+            height:70px;
+         }
+
+         .descripton{
+            height: 90px;
+         }
+      }
+
+      .btn-area{
+         display: flex;
+         justify-content: center;
+         color: white;
+         border-radius: 20px;
+         border: none;
+         width: 150px;
+         height: 35px;
+         margin: 45px;
+         width: 100%;
+
+         a {
+            text-align: center;
+            line-height: 2;
+         }
+
+         button {
+            margin: 0 10px;
+         }
+      }
+   }
+}
