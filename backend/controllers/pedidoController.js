@@ -5,9 +5,9 @@ module.exports = {
     async inserirPedido(req, res) {
 
         try {
-            const { nome, observacao, quantidade_item, valor_total, item_id } = req.body
+            const { nome, observacao, quantidade_item, valor_total, item_id, nome_cliente } = req.body
 
-            const pedido = await Pedido.create({ nome, observacao, quantidade_item, valor_total, item_id });
+            const pedido = await Pedido.create({ nome, observacao, quantidade_item, valor_total, item_id,nome_cliente });
 
             res.status(200).json({ pedido });
         }
@@ -21,14 +21,14 @@ module.exports = {
 
         try {
             const { id } = req.params
-            const { nome, observacao, quantidade_item, valor_total, item_id } = req.body
+            const { nome, observacao, quantidade_item, valor_total, item_id,nome_cliente } = req.body
             const pedido = await Pedido.findOne({ where: { id } })
 
             if (!pedido) {
                 res.status(401).json({ message: "Nenhum pedido encontrado." });
             }
             else {
-                const pedido = await Pedido.update({ nome, observacao, quantidade_item, valor_total, item_id }, { where: { id } })
+                const pedido = await Pedido.update({ nome, observacao, quantidade_item, valor_total, item_id,nome_cliente }, { where: { id } })
 
                 res.status(200).json({ pedido });
             }
