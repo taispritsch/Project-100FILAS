@@ -9,7 +9,8 @@ class item extends Model {
       descricao: DataTypes.STRING,
       valor: DataTypes.DOUBLE,
       quantidade: DataTypes.INTEGER,
-      estabelecimento_id: DataTypes.INTEGER
+      estabelecimento_id: DataTypes.INTEGER,
+      tipo_item: DataTypes.STRING
     },
       {
         sequelize

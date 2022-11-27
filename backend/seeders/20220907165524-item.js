@@ -9,6 +9,7 @@ module.exports = {
         valor: 5,
         quantidade: 10,
         estabelecimento_id: 1,
+        tipo_item: 'Salgado',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -18,6 +19,7 @@ module.exports = {
         valor: 2.50,
         quantidade: 15,
         estabelecimento_id: 1,
+        tipo_item: 'Bebida',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -27,6 +29,7 @@ module.exports = {
         valor: 7.20,
         quantidade: 5,
         estabelecimento_id: 1,
+        tipo_item: 'Doce',
         createdAt: new Date(),
         updatedAt: new Date()
       }

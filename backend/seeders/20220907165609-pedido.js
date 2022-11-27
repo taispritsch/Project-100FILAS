@@ -8,6 +8,7 @@ module.exports = {
         quantidade_item: 1,
         valor_total: 5,
         item_id: 1,
+        nome_cliente: 'Henrique',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -16,6 +17,7 @@ module.exports = {
         quantidade_item: 3,
         valor_total: 7.5,
         item_id: 1,
+        nome_cliente: 'Caron',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -24,6 +26,7 @@ module.exports = {
         quantidade_item: 1,
         valor_total: 7.20,
         item_id: 1,
+        nome_cliente: 'Henrique Caron',
         createdAt: new Date(),
         updatedAt: new Date()
       }
