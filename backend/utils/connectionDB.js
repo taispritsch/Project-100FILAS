@@ -10,6 +10,7 @@ const Log_pedido        = require('../models/log_pedido');
 const Pedido            = require('../models/pedido');
 const Pedido_has_item   = require('../models/pedido_has_item');
 const Token             = require('../models/token');
+const Imagem            = require('../models/imagem');
 
 
 const connection = new Sequelize(db);
@@ -23,6 +24,7 @@ Log_pedido.init(connection);
 Pedido.init(connection);
 Pedido_has_item.init(connection);
 Token.init(connection);
+Imagem.init(connection);
 
 module.exports = connection;
 
