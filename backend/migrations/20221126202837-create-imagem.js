@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = {
   up(queryInterface, Sequelize) {
     return queryInterface.createTable('imagems', {
@@ -28,6 +27,14 @@ module.exports = {
           model: 'items',
           key: 'id'
         }
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
     });
   },

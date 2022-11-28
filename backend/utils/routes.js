@@ -48,6 +48,7 @@ router.post('/inserirPedido', pedidoController.inserirPedido)
 router.put('/atualizarPedido/:id', pedidoController.atualizarPedido)
 router.get('/listarPedidos', pedidoController.listarPedidos)
 router.get('/listarPedido/:id', pedidoController.listarPedido)
+router.get('/listarPedidosPorEstabelecimento/:estabelecimento_id', pedidoController.listarPedidosPorEstabelecimento)
 router.delete('/deletarPedido/:id', pedidoController.deletarPedido)
 // FIM PEDIDO
 

@@ -33,6 +33,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      estabelecimento_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'estabelecimentos',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
