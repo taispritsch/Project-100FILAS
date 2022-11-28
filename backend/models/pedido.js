@@ -1,5 +1,6 @@
 const Item = require('./item');
 const { Model, DataTypes } = require('sequelize');
+const Estabelecimento = require('./estabelecimento');
 
 class pedido extends Model {
   static init(sequelize) {
@@ -8,7 +9,8 @@ class pedido extends Model {
       quantidade_item: DataTypes.INTEGER,
       valor_total: DataTypes.DOUBLE,
       item_id: DataTypes.INTEGER,
-      nome_cliente: DataTypes.STRING
+      nome_cliente: DataTypes.STRING,
+      estabelecimento_id: DataTypes.STRING
     },
       {
         sequelize
@@ -18,6 +20,7 @@ class pedido extends Model {
 
 pedido.associate = function (models) {
   pedido.belongTo(Item, { foreinKey: 'item_id', as: 'items' });
+  pedido.belongTo(Estabelecimento, { foreinKey: 'estabelecimento_id', as: 'estabelecimentos' });
 }
 
 module.exports = pedido;

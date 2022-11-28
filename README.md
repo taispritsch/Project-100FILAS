@@ -1,3 +1,6 @@
+# Biblioteca de envio de email
+npm install nodemailer
+
 # FRONT
 <!-- Iniciar projeto -->
 npm start
