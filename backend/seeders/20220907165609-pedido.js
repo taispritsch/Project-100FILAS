@@ -39,6 +39,7 @@ module.exports = {
         valor_total: 10,
         item_id: 1,
         nome_cliente: 'Caron',
+        estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -48,6 +49,7 @@ module.exports = {
         valor_total: 15,
         item_id: 2,
         nome_cliente: 'Caron',
+        estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -57,6 +59,7 @@ module.exports = {
         valor_total: 12,
         item_id: 3,
         nome_cliente: 'Caron',
+        estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -66,6 +69,7 @@ module.exports = {
         valor_total: 12.5,
         item_id: 3,
         nome_cliente: 'Caron',
+        estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -75,6 +79,7 @@ module.exports = {
         valor_total: 14,
         item_id: 2,
         nome_cliente: 'Caron',
+        estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -84,6 +89,7 @@ module.exports = {
         valor_total: 25,
         item_id: 1,
         nome_cliente: 'Caron',
+        estabelecimento_id: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
