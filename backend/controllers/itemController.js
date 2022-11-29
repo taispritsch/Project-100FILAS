@@ -5,9 +5,9 @@ module.exports = {
     async inserirItem(req, res) {
 
         try {
-            const { nome, descricao, valor, quantidade, estabelecimento_id, tipo_item } = req.body
+            const { nome, descricao, valor, quantidade, estabelecimento_id, tipo_item, caminho_imagem } = req.body
 
-            const item = await Item.create({ nome, descricao, valor, quantidade, estabelecimento_id, tipo_item });
+            const item = await Item.create({ nome, descricao, valor, quantidade, estabelecimento_id, tipo_item, caminho_imagem });
 
             res.status(200).json({ item });
         }
@@ -21,14 +21,14 @@ module.exports = {
 
         try {
             const { id } = req.params
-            const { nome, descricao, valor, quantidade, estabelecimento_id, tipo_item } = req.body
+            const { nome, descricao, valor, quantidade, estabelecimento_id, tipo_item, caminho_imagem } = req.body
             const item = await Item.findOne({ where: { id } })
 
             if (!item) {
                 res.status(401).json({ message: "Nenhum item encontrado." });
             }
             else {
-                const item = await Item.update({ nome, descricao, valor, quantidade, estabelecimento_id, tipo_item }, { where: { id } })
+                const item = await Item.update({ nome, descricao, valor, quantidade, estabelecimento_id, tipo_item, caminho_imagem }, { where: { id } })
 
                 res.status(200).json({ item });
             }

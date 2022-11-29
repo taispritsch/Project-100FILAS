@@ -10,6 +10,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 1,
         tipo_item: 'Salgado',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -20,6 +21,7 @@ module.exports = {
         quantidade: 15,
         estabelecimento_id: 1,
         tipo_item: 'Bebida',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -30,6 +32,7 @@ module.exports = {
         quantidade: 5,
         estabelecimento_id: 1,
         tipo_item: 'Doce',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -40,6 +43,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 1,
         tipo_item: 'Salgado',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -50,6 +54,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 2,
         tipo_item: 'Salgado',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -60,6 +65,7 @@ module.exports = {
         quantidade: 20,
         estabelecimento_id: 3,
         tipo_item: 'Salgado',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -70,6 +76,7 @@ module.exports = {
         quantidade: 30,
         estabelecimento_id: 1,
         tipo_item: 'Doce',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -80,6 +87,7 @@ module.exports = {
         quantidade: 22,
         estabelecimento_id: 2,
         tipo_item: 'Doce',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -90,6 +98,7 @@ module.exports = {
         quantidade: 15,
         estabelecimento_id: 3,
         tipo_item: 'Doce',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -100,6 +109,7 @@ module.exports = {
         quantidade: 8,
         estabelecimento_id: 1,
         tipo_item: 'Bebida',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -110,6 +120,7 @@ module.exports = {
         quantidade: 20,
         estabelecimento_id: 2,
         tipo_item: 'Bebida',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -120,6 +131,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 3,
         tipo_item: 'Bebida',
+        caminho_imagem: 'imagem/...',
         createdAt: new Date(),
         updatedAt: new Date()
       }
