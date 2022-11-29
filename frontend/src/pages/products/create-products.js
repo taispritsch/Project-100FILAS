@@ -8,7 +8,7 @@ establishmentInsertForm.addEventListener('submit', (e) => {
    data.append('estabelecimento_id', '2');
    const dataJSON = Object.fromEntries(data.entries());
    dataJSON.descricao = data.get('descricao');
-
+   dataJSON.caminho_imagem = data.get('caminho_imagem').name
    register(dataJSON);
 })
 

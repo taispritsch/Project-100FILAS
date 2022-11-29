@@ -1,7 +1,8 @@
 const {ipcRenderer} = require('electron');
 ipcRenderer.on('establishment', (e, args) => {    
     async function getProducts(id) {
-        let url = 'http://localhost:8080/listarItens';
+        console.log(id)
+        let url = 'http://localhost:8080/listarItensPorEstabelecimento/'+id;
         try {
             let res = await fetch(url);
             return await res.json();
@@ -12,13 +13,12 @@ ipcRenderer.on('establishment', (e, args) => {
      
     // Carrega os produtos do estabelecimento
     async function renderProducts(param) {
-        let itens = await getProducts(param.id);
+        let itens = await getProducts(param);
         let html = '';
         itens.itens.map(itens => {
-            console.log(itens)
             let htmlSegment = `
                 <div class="card-product" id="${itens.id}">
-                    <img class="img-product" src="../../assets/produtos/pastel.png" alt="Pastel de Frango" />
+                    <img class="img-product" src="../../assets/est_${param}/${itens.caminho_imagem}" alt="${itens.descricao}" />
                     <div class="info">                    
                         <h6>${itens.nome}</h6>
                         <span>R$ ${itens.valor}</span>                        
