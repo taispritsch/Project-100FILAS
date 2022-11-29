@@ -1,7 +1,7 @@
 const {ipcRenderer} = require('electron');
-ipcRenderer.on('establishment', (e, args) => {    
+ipcRenderer.on('establishment', (e, args) => {
     async function getProducts(id) {
-        let url = 'http://localhost:8080/listarItens';
+        let url = 'http://localhost:8080/listarItensPorEstabelecimento/'+id;
         try {
             let res = await fetch(url);
             return await res.json();
@@ -15,7 +15,6 @@ ipcRenderer.on('establishment', (e, args) => {
         let itens = await getProducts(param.id);
         let html = '';
         itens.itens.map(itens => {
-            console.log(itens)
             let htmlSegment = `
                 <div class="card-product" id="${itens.id}">
                     <img class="img-product" src="../../assets/produtos/pastel.png" alt="Pastel de Frango" />
@@ -38,7 +37,7 @@ ipcRenderer.on('establishment', (e, args) => {
         container.innerHTML = html;
         getListItem(itens);
     }    
-    renderProducts(args.id);
+    renderProducts(args);
 
 })
 let listItem;
@@ -93,6 +92,46 @@ function getListarPedido(){
 
     return array;
 }
+
+let confirmOrderBtn = document.getElementById('orderConfirm');
+confirmOrderBtn.addEventListener('click', () => {
+    console.log(list)
+    if(list.length > 0) {
+        // nome, observacao, quantidade_item, valor_total, item_id
+        let orders = [];
+        for(order in list){
+            orders.push(
+                {
+                    nome: list[order].nome,
+                    observacao: list[order].descricao,
+                    quantidade_item: list[order].quantidade,
+                    valor_total: list[order].quantidade*list[order].valor,
+                    item_id: list[order].id,
+                    // createdAt: list[order].createdAt,
+                    // updatedAt: list[order].updatedAt
+                }
+            )
+        }
+        console.log(orders);
+        let insertOrderUrl = 'http://localhost:8080/inserirPedido';
+        fetch(insertOrderUrl, {
+            method: 'POST',
+            body: JSON.stringify(orders),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                console.log("Estabelecimento cadastrado com sucesso!")
+                // REDIRECIONAR A PÁGINA
+                return response.json();
+            }
+            return Promise.reject(response);
+        }).catch(function (error) {
+            console.warn('Erro ao inserir estabelecimento.', error);
+        });
+    }
+})
 
 
 
