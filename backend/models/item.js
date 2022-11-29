@@ -10,7 +10,8 @@ class item extends Model {
       valor: DataTypes.DOUBLE,
       quantidade: DataTypes.INTEGER,
       estabelecimento_id: DataTypes.INTEGER,
-      tipo_item: DataTypes.STRING
+      tipo_item: DataTypes.STRING,
+      caminho_imagem: DataTypes.STRING
     },
       {
         sequelize
