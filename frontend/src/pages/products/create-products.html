@@ -36,6 +36,21 @@
              <label for="descricao">Descrição:</label>
              <textarea type="textarea" id="descricao" class="descricao" name="descricao" required></textarea>
          </div>
+         <div class="radio-wrapper">
+            <label for="doce" class="form-control">
+               <input type="radio" id="doce" name="tipo_item" value="doce" required>
+               Doce</label>
+               <label for="salgado" class="form-control">
+                  <input type="radio" id="salgado" name="tipo_item" value="salgado" required>
+                  Salgado</label>
+               <label for="bebida" class="form-control">
+                  <input type="radio" id="bebida" name="tipo_item" value="bebida" required>
+                  Bebida</label>
+               </div>
+         <div class="inputs">
+            <label for="caminho_imagem">Enviar:</label>
+            <input class="custom-file-input" type="file" id="caminho_imagem" name="caminho_imagem" required>
+         </div>
          <div class="btn-area">
              <a href="#" class="cancel btn">Voltar</a>
              <button type="submit" class="save btn">Salvar</button>

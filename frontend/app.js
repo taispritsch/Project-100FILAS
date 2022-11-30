@@ -9,9 +9,9 @@ function init(){
       height: 720,
       webPreferences: {nodeIntegration: true}
    })
-   mainScreen.loadFile('./src/pages/estabilishment/order-list.html');
-   mainScreen.openDevTools();
    // mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
+   mainScreen.loadFile('./src/pages/products/create-products.html')
+   mainScreen.openDevTools();
 }
 // modify your existing createWindow() function
 const createWindow = (screenName, content) => {

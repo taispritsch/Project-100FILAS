@@ -1,14 +1,15 @@
 let establishmentInsertForm = document.getElementById('establishmentInsertForm');
 let createProductURL = 'http://localhost:8080/inserirItem';
 
+console.info(establishmentSession.id);
 establishmentInsertForm.addEventListener('submit', (e) => {
    e.preventDefault();
+   var estabilishmentSession = JSON.parse(sessionStorage.getItem('estabelecimento'));
    const data = new FormData(e.target);
-   // PEGAR ID NA SESSION E PASSAR PARA O CAMPO ABAIXO
-   data.append('estabelecimento_id', '2');
+   data.append('estabelecimento_id', estabilishmentSession.id);
    const dataJSON = Object.fromEntries(data.entries());
    dataJSON.descricao = data.get('descricao');
-
+   dataJSON.caminho_imagem = data.get('caminho_imagem').name
    register(dataJSON);
 })
 

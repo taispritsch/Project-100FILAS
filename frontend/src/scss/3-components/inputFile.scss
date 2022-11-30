@@ -1,0 +1,27 @@
+.custom-file-input {
+   color: #FFF;
+   height: unset!important;
+   padding: 0 10px!important;
+ }
+ .custom-file-input::-webkit-file-upload-button {
+   visibility: hidden;
+ }
+ .custom-file-input::before {
+   content: 'Upload';
+   color: #FFF;
+   display: inline-block;
+   background: -webkit-linear-gradient(top, var(--light-red), var(--dark-red));
+   border-radius: 3px;
+   padding: 5px;
+   outline: none;
+   cursor: pointer;
+   font-weight: 400;
+ }
+
+ .custom-file-input:active {
+   outline: 0;
+ }
+ 
+ .custom-file-input:active::before {
+   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+ }
