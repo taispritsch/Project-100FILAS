@@ -33,6 +33,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      numero_pedido: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       estabelecimento_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

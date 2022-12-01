@@ -10,8 +10,6 @@ const Log_pedido        = require('../models/log_pedido');
 const Pedido            = require('../models/pedido');
 const Pedido_has_item   = require('../models/pedido_has_item');
 const Token             = require('../models/token');
-const Imagem            = require('../models/imagem');
-
 
 const connection = new Sequelize(db);
 
@@ -24,28 +22,5 @@ Log_pedido.init(connection);
 Pedido.init(connection);
 Pedido_has_item.init(connection);
 Token.init(connection);
-Imagem.init(connection);
 
 module.exports = connection;
-
-
-/* const db = require('../utils/connectionDB');
-import Sequelize from 'sequelize';
-
-const sequelize = new Sequelize("100filas", "postgres", "admin", {
-    host: 'localhost',
-    dialect: 'postgres',
-    define: {
-        timestamp: true
-    }
-});
-
-sequelize.authenticate()
-.then(function(){
-    console.log("Conexão com o banco de dados realizada com sucesso!");
-}).catch(function(e){
-    console.log("Erro: Conexão com o banco de dados não realizada com sucesso!");
-    console.log(e);
-});
-
-module.exports = sequelize; */
