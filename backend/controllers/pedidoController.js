@@ -5,9 +5,9 @@ module.exports = {
     async inserirPedido(req, res) {
 
         try {
-            const { nome, observacao, quantidade_item, valor_total, item_id, nome_cliente } = req.body
+            const { observacao, quantidade_item, valor_total, item_id, nome_cliente, numero_pedido, estabelecimento_id } = req.body
 
-            const pedido = await Pedido.create({ nome, observacao, quantidade_item, valor_total, item_id, nome_cliente });
+            const pedido = await Pedido.create({ observacao, quantidade_item, valor_total, item_id, nome_cliente, numero_pedido, estabelecimento_id });
 
             res.status(200).json({ pedido });
         }

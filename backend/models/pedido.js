@@ -10,7 +10,8 @@ class pedido extends Model {
       valor_total: DataTypes.DOUBLE,
       item_id: DataTypes.INTEGER,
       nome_cliente: DataTypes.STRING,
-      estabelecimento_id: DataTypes.STRING
+      numero_pedido: DataTypes.STRING,
+      estabelecimento_id: DataTypes.INTEGER
     },
       {
         sequelize
