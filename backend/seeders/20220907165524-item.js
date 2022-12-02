@@ -10,7 +10,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 1,
         tipo_item: 'Salgado',
-        caminho_imagem: 'imagem/...',
+        caminho_imagem: 'coca-cola-1l.webp',
         createdAt: new Date(),
         updatedAt: new Date()
       },

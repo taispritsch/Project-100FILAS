@@ -8,3 +8,7 @@ formClient.addEventListener('submit', (e) => {
    ipcRenderer.send('nextStep', dataJSON);
    window.location.href = '../index/index.html';
 });
+
+function loginEstablishment(){
+   window.location.href = '../estabilishmentLogin/estabilishmentLogin.html';
+}

@@ -1,0 +1,105 @@
+body{
+    background-color: #222222;
+
+    .title{
+        text-align: center;
+        padding: 35px;
+        font-size: 25px;
+        color: white;
+        text-shadow: 
+                   -1px -1px 0px #BA0505, 
+                   -1px 1px 0px #BA0505,                    
+                    1px -1px 0px #BA0505,                  
+                    1px 0px 0px #BA0505;
+    }
+
+    .about-us{
+        display: flex;
+        /* height: 500px; */
+
+        .content{
+            width: 75%;
+            padding: 15px;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+
+            .people{
+                display: flex;
+                width: 100px;
+                height: 100px;
+                background-color: #A00404;
+                border-radius: 50px;
+                justify-content: center;
+                margin-left: 65px;
+
+                .name{
+                    text-align: center;
+                    margin-top: 30px;
+                    color: white;
+                    font-weight: 600;
+                }
+            }
+
+            p{
+                color: white;
+                margin-top: 20px;
+            }
+        }
+
+        /* .end{
+            width: 75%;
+            padding: 15px;
+            align-self: flex-end;
+        } */
+
+    }
+
+    .return{
+        float: left;
+        width: 150px;
+        height: 30px;
+        border-radius: 50px;
+        background-color: #A00404;
+        color: white;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        margin-left: 30px;
+    }
+
+    .button-egg{
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        background-color: #A00404;
+        color: white;
+        float: right;
+        font-size: 9px;
+        border: none;
+        cursor: pointer;
+        margin-right: 30px;
+    }
+
+    .vacilao{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .button-return{
+            width: 400px;
+            height: 70px;
+            border-radius: 50px;
+            background-color: #A00404;
+            color: white;
+            font-size: 22px;
+            border: none;
+            cursor: pointer;
+        }
+    
+        .button-return:hover{
+            font-weight: 600;
+        }
+    }
+
+}
