@@ -1,5 +1,5 @@
 const {ipcRenderer} = require('electron');
-ipcRenderer.on('establishment', (e, args) => {    
+ipcRenderer.on('establishment', (e, args) => {
     async function getProducts(id) {
         console.log(id)
         let url = 'http://localhost:8080/listarItensPorEstabelecimento/'+id;
@@ -38,7 +38,7 @@ ipcRenderer.on('establishment', (e, args) => {
         container.innerHTML = html;
         getListItem(itens);
     }    
-    renderProducts(args.id);
+    renderProducts(args);
 
 })
 let listItem;
@@ -66,6 +66,7 @@ function fillShopCart(item, amount){
         });
     } else {
         list.push(item);
+
         list = list.filter(function (a) {
             return !this[JSON.stringify(a.id)] && (this[JSON.stringify(a.id)] = true);
         }, Object.create(null))
@@ -82,5 +83,49 @@ function updateFloatList(num){
 
 function getListItem(list){
     listItem = list;
+    /* console.log(listItem) */
 }
+
+
+let confirmOrderBtn = document.getElementById('orderConfirm');
+confirmOrderBtn.addEventListener('click', () => {
+    console.log(list)
+    if(list.length > 0) {
+        // nome, observacao, quantidade_item, valor_total, item_id
+        let orders = [];
+        for(order in list){
+            orders.push(
+                {
+                    nome: list[order].nome,
+                    observacao: list[order].descricao,
+                    quantidade_item: list[order].quantidade,
+                    valor_total: list[order].quantidade*list[order].valor,
+                    item_id: list[order].id,
+                    // createdAt: list[order].createdAt,
+                    // updatedAt: list[order].updatedAt
+                }
+            )
+        }
+        console.log(orders);
+        let insertOrderUrl = 'http://localhost:8080/inserirPedido';
+        fetch(insertOrderUrl, {
+            method: 'POST',
+            body: JSON.stringify(orders),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }).then(function (response) {
+            if (response.ok) {
+                console.log("Estabelecimento cadastrado com sucesso!")
+                // REDIRECIONAR A PÁGINA
+                return response.json();
+            }
+            return Promise.reject(response);
+        }).catch(function (error) {
+            console.warn('Erro ao inserir estabelecimento.', error);
+        });
+    }
+})
+
+
 

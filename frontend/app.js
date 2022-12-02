@@ -14,6 +14,7 @@ function init(){
    // mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
    //mainScreen.loadFile('./src/pages/products/create-products.html')
    mainScreen.openDevTools();
+   mainScreen.loadFile('./src/pages/homepage/homepage.html')
 }
 // modify your existing createWindow() function
 const createWindow = (screenName, content) => {
