@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="content_security_policy": "default-src 'self' style-src 'self' 'unsafe-inline';">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+   <link rel="stylesheet" href="../../www/main.css"; />
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/> -->
+    <title>Sobre os Autores</title>
+</head>
+<body>
+    <style>
+        /* animate css */
+        @keyframes btn-pisca {
+            0% { opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .btn-pisca {
+        background-color:#A00404;
+        color:#fff;
+        /* padding: 0.6em 0.8em;
+        display: inline-block; */
+        text-decoration: none;
+        -webkit-animation: btn-pisca .9s linear infinite;
+        -moz-animation: btn-pisca .9s linear infinite;
+        -ms-animation: btn-pisca .9s linear infinite;
+        -o-animation: btn-pisca .9s linear infinite;
+        animation: btn-pisca .9s linear infinite;
+        }
+    </style>
+    
+    <p class="title">SOBRE OS AUTORES</p>
+
+    <section class="about-us">
+        
+            <div class="content">
+                <div class="people">
+                    <h4 class="name">Gabrielli Sartori</h4>
+                </div>
+                <p>Estudante de Engenharia de Software.<br/><br/> Minha comida preferida é pizza!</p>
+            </div>
+        
+            <div class="content end">
+                <div class="people">
+                    <h4 class="name">Henrique Caron</h4>
+                </div>
+                <p>Estudante de Engenharia de Software.<br/><br/> Minha comida preferida é churrasquinho de picanha e uma cervejinha bem gelada.</p>
+            </div>
+
+            <div class="content">
+                <div class="people">
+                    <h4 class="name">Matheus Minuzzi</h4>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+
+            <div class="content end">
+                <div class="people">
+                    <h4 class="name">Taís<br/> Pritsch</h4>
+                </div>
+                <p>Estudante de Egenharia de Software.<br/><br/> Amo dormir e assistir um jogo do Inter. Aceito qualquer convite pra comer um bom hambúrguer :)</p>
+            </div>
+
+    </section>
+
+    <div>
+        <button class="btn return" onclick="voltar()">VOLTAR</button>
+    </div>
+
+    <div>
+        <button class="button-egg btn-pisca" onclick="easterEgg()">Não clique aqui!</button>
+    </div>
+
+    <div class="vacilao">
+        <button class="btn button-return" onclick="voltar()" style="display: none;">EU MANDEI TU NÃO CLICAR AI!
+            <br/>Agora clica aqui pra voltar né
+        </button>
+    </div>
+    
+
+    <script type="text/javascript" src="./sobre-nos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" ></script>
+    <script type="text/javascript" src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" type="text/javascript"></script>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+.title{
+    text-align: left;
+    font-size: 25px;
+    color: white;
+    text-shadow: 
+                   -1px -1px 0px #BA0505, 
+                   -1px 1px 0px #BA0505,                    
+                    1px -1px 0px #BA0505,                  
+                    1px 0px 0px #BA0505;
+}
+
+.line{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.shopping{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-size: 18px;
+}
+
+.total{
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.value{
+    margin-top: 10px;
+    color: #F31C1C;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.finalizar{
+    position: relative;
+        width: 237px;
+        height: 40px;
+        border-radius: 20px;
+        float: right;
+        background-color: #A00404;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        bottom: 10px;
+}

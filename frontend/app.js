@@ -9,8 +9,10 @@ function init(){
       height: 720,
       webPreferences: {nodeIntegration: true}
    })
+
+   mainScreen.loadFile('./src/pages/homepage/homepage.html')
    // mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
-   mainScreen.loadFile('./src/pages/products/create-products.html')
+   //mainScreen.loadFile('./src/pages/products/create-products.html')
    mainScreen.openDevTools();
 }
 // modify your existing createWindow() function
