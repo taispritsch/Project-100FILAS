@@ -20,10 +20,12 @@ formEstabilishment.addEventListener('submit', (e) => {
          sessionStorage.setItem('estabelecimento', estabilishments.estabelecimentos[i].id);
          window.location.href = '../indexEstabilishment/indexEstabilishment.html';
          return true;
-      }else {
-         alert('Email ou senha Incorretos');
-         return false;
       }
+   }
+
+   if(JSON.parse(sessionStorage.getItem('estabelecimento') == '')){
+      alert('Email ou senha Incorretos');
+
    }
 });
 
