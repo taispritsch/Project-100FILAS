@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="content_security_policy": "default-src 'self' style-src 'self' 'unsafe-inline';">
+   <link rel="stylesheet" href="../../www/main.css"; />
+   <title>Products</title>
+</head>
+<body>
+    
+   <header>
+      <img src="../../assets/logo.svg" alt="Logo" />
+   </header>
+
+   <section class="create-product-section">
+      <h2 class="product-title">Edição do produto</h2>
+      <div class="card-product-container"></div>
+      <form class="form" id="establishmentEditForm">
+         <div class="inputs">
+             <label for="nome">Nome:</label>
+             <input type="text" id="nome" name="nome" required/>
+         </div>
+         <div class="inputs">
+             <label for="valor">Valor:</label>
+             <input type="text" id="valor" name="valor" required/>
+         </div>
+         <div class="inputs">
+             <label for="quantidade">quantidade:</label>
+             <input type="text" id="quantidade" name="quantidade" required></input>
+         </div>
+         <div class="inputs">
+             <label for="descricao">Descrição:</label>
+             <textarea type="textarea" id="descricao" class="descricao" name="descricao" required></textarea>
+         </div>
+         <div class="radio-wrapper">
+            <label for="doce" class="form-control">
+               <input type="radio" id="doce" name="tipo_item" value="doce" required>
+               Doce</label>
+               <label for="salgado" class="form-control">
+                  <input type="radio" id="salgado" name="tipo_item" value="salgado" required>
+                  Salgado</label>
+               <label for="bebida" class="form-control">
+                  <input type="radio" id="bebida" name="tipo_item" value="bebida" required>
+                  Bebida</label>
+               </div>
+         <div class="inputs">
+            <label for="caminho_imagem">Enviar:</label>
+            <input class="custom-file-input" type="file" id="caminho_imagem" name="caminho_imagem">
+         </div>
+         <div class="btn-area">
+             <a href="../estabilishment/products-list.html" class="cancel btn">Voltar</a>
+             <button type="submit" class="save btn">Salvar</button>
+         </div>
+     </form>
+      <!-- <a href="../index/index.html" class="btn btn-link">Voltar</a> -->
+   </section>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" ></script>
+   <script type="text/javascript" src="../../../node_modules/jquery/dist/jquery.js"></script>
+   <script type="text/javascript" src="./edit-product.js"></script>
+</body>
+</html>

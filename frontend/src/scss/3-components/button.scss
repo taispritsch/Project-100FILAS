@@ -6,11 +6,15 @@
    height: 40px;
    border-radius: 30px;
    background-color: var(--dark-red);
-   transition: all 0.5s
+   transition: all 0.5s;
 }
 
 .btn:hover {
    background-color: var(--light-red);
+}
+
+.save {
+   z-index: 2;
 }
 
 .btn::after{
