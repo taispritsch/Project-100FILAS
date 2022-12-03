@@ -5,13 +5,14 @@ async function getOrders(id) {
        let res = await fetch(url);
        return await res.json();
    } catch (error) {
-       console.log(error);
+       console.error(error);
    }
 }
 
 // Carrega os pedidos do estabelecimento
 async function renderOrderList() {
-   let orders = await getOrders(1);
+   var estabilishmentSessionId = JSON.parse(sessionStorage.getItem('estabelecimento'));
+   let orders = await getOrders(estabilishmentSessionId);
    let html = '';
    orders.pedidos.map(orders => {
       let htmlSegment = `<div class="accordion">
