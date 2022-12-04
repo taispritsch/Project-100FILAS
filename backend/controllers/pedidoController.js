@@ -10,38 +10,37 @@ module.exports = {
             const pedido = await Pedido.create({ observacao, quantidade_item, valor_total, item_id, nome_cliente, numero_pedido, estabelecimento_id });
 
             res.status(200).json({ pedido });
+
+            const nodemailer = require('nodemailer');
+
+            var transport = nodemailer.createTransport({
+                host: "smtp.mailtrap.io",
+                port: 2525,
+                auth: {
+                    user: "d060b33c41cd14",
+                    pass: "e92ccea6efde17"
+                }
+            });
+
+            const mailOptions = {
+                from: 'gabrielli.sartori@universo.univates.br',
+                to: 'gabrielli.sartori@universo.univates.br',
+                subject: 'Detalhes do seu Pedido',
+                html: "Olá, " + pedido.dataValues.nome_cliente + "! <br><br>Seu pedido foi finalizado com sucesso."
+            };
+
+            transport.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email enviado: ' + info.response);
+                }
+            });
+
         }
         catch (error) {
             res.status(400).json({ error });
         }
-
-        const nodemailer = require('nodemailer');
-
-        var transport = nodemailer.createTransport({
-            host: "smtp.mailtrap.io",
-            port: 2525,
-            auth: {
-                user: "d060b33c41cd14",
-                pass: "e92ccea6efde17"
-            }
-        });
-
-        const mailOptions = {
-            from: 'gabrielli.sartori@universo.univates.br',
-            to: 'gabrielli.sartori@universo.univates.br',
-            subject: 'Detalhes do seu Pedido',
-            html: "Olá! <br><br>Seu pedido foi finalizado com sucesso."
-        };
-
-        transport.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email enviado: ' + info.response);
-            }
-        });
-
-
     },
     //ATUALIZAR PEDIDO
     async atualizarPedido(req, res) {
@@ -69,6 +68,23 @@ module.exports = {
         try {
             const { id } = req.params
             const pedido = await Pedido.findOne({ where: { id } })
+
+            if (!pedido) {
+                res.status(401).json({ message: "Pedido não encontrado." });
+            }
+            else {
+                res.status(200).json({ pedido });
+            }
+        }
+        catch (error) {
+            res.status(400).json({ error });
+        }
+    },
+    //LISTAR PEDIDO PELO NUMERO DO PEDIDO
+    async listarPedidoPorNumeroPedido(req, res) {
+        try {
+            const { numero_pedido } = req.params
+            const pedido = await Pedido.findAll({ where: { numero_pedido } })
 
             if (!pedido) {
                 res.status(401).json({ message: "Pedido não encontrado." });
@@ -135,4 +151,5 @@ module.exports = {
             res.status(400).json({ error });
         }
     }
+
 }
