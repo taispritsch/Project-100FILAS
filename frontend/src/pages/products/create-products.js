@@ -22,6 +22,8 @@ function register(body){
    }).then(function (response) {
        if (response.ok) {
            console.log("Produto cadastrado com sucesso!")
+           alert("Produto cadastrado com sucesso!");
+           window.location.href = '../estabilishment/products-list.html';
            return response.json();
        }
        return Promise.reject(response);

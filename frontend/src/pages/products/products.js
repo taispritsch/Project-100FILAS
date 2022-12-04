@@ -1,47 +1,62 @@
 const {ipcRenderer} = require('electron');
+var clientSession = JSON.parse(sessionStorage.getItem('cliente'));
+let listItem;
+let numberOfOrders;
+
 ipcRenderer.on('establishment', (e, args) => {
     async function getProducts(id) {
-        console.log(id)
         let url = 'http://localhost:8080/listarItensPorEstabelecimento/'+id;
         try {
             let res = await fetch(url);
             return await res.json();
         } catch (error) {
-            console.log(error);
+            console.error(error);
+        }
+    }
+
+    async function getOrders(){
+        let url = 'http://localhost:8080/listarPedidos/';
+        try {
+            let res = await fetch(url);
+            return await res.json();
+        } catch (error) {
+            console.error(error);
         }
     }
      
     // Carrega os produtos do estabelecimento
     async function renderProducts(param) {
-        let itens = await getProducts(param);
-        let html = '';
-        itens.itens.map(itens => {
-            let htmlSegment = `
-                <div class="card-product" id="${itens.id}">
-                    <img class="img-product" src="../../assets/est_${param}/${itens.caminho_imagem}" alt="${itens.descricao}" />
-                    <div class="info">                    
-                        <h6>${itens.nome}</h6>
-                        <span>R$ ${itens.valor}</span>                        
-                        <p>${itens.descricao}</p>
-                        <div class=button-area>
-                            <button onclick="decrease(${itens.id})" type="button">-</button>
-                            <p id="item${itens.id}">0</p>
-                            <button onclick="increase(${itens.id})" type="button">+</button>
+        if(param){
+            let itens = await getProducts(param.id);
+            let html = '';
+            itens.itens.map(itens => {
+                let htmlSegment = `
+                    <div class="card-product" id="${itens.id}">
+                        <img class="img-product" src="../../assets/est_${param}/${itens.caminho_imagem}" alt="${itens.descricao}" />
+                        <div class="info">                    
+                            <h6>${itens.nome}</h6>
+                            <span>R$ ${itens.valor}</span>                        
+                            <p>${itens.descricao}</p>
+                            <div class=button-area>
+                                <button onclick="decrease(${itens.id})" type="button">-</button>
+                                <p id="item${itens.id}">0</p>
+                                <button onclick="increase(${itens.id})" type="button">+</button>
+                            </div>
                         </div>
-                    </div>
-                </div>`;
-    
-            html += htmlSegment;
-        });
-    
-        let container = document.querySelector('.card-product-container');
-        container.innerHTML = html;
-        getListItem(itens);
+                    </div>`;
+        
+                html += htmlSegment;
+            });
+            
+            let container = document.querySelector('.card-product-container');
+            container.innerHTML = html;
+            getListItem(itens);
+        }
+        numberOfOrders = await getOrders();
     }    
     renderProducts(args);
-
 })
-let listItem;
+
 function decrease(id){
     let count = document.getElementById('item'+id);
     if(+count.textContent > 0){
@@ -83,49 +98,47 @@ function updateFloatList(num){
 
 function getListItem(list){
     listItem = list;
-    /* console.log(listItem) */
 }
-
 
 let confirmOrderBtn = document.getElementById('orderConfirm');
 confirmOrderBtn.addEventListener('click', () => {
-    console.log(list)
+
     if(list.length > 0) {
-        // nome, observacao, quantidade_item, valor_total, item_id
-        let orders = [];
-        for(order in list){
-            orders.push(
-                {
-                    nome: list[order].nome,
-                    observacao: list[order].descricao,
-                    quantidade_item: list[order].quantidade,
-                    valor_total: list[order].quantidade*list[order].valor,
-                    item_id: list[order].id,
-                    // createdAt: list[order].createdAt,
-                    // updatedAt: list[order].updatedAt
-                }
-            )
+        for(let i=0; i < list.length; i++) {
+            let orders = {
+                observacao: list[i].descricao,
+                quantidade_item: list[i].quantidade,
+                valor_total: list[i].quantidade*list[i].valor,
+                item_id: list[i].id,
+                nome_cliente: clientSession.nome,
+                numero_pedido: numberOfOrders.pedidos.length+1,
+                estabelecimento_id: listItem.itens[i].estabelecimento_id
+            }
+            postOrder(orders);
         }
-        console.log(orders);
-        let insertOrderUrl = 'http://localhost:8080/inserirPedido';
-        fetch(insertOrderUrl, {
-            method: 'POST',
-            body: JSON.stringify(orders),
-            headers: {
-                'Content-type': 'application/json'
-            }
-        }).then(function (response) {
-            if (response.ok) {
-                console.log("Estabelecimento cadastrado com sucesso!")
-                // REDIRECIONAR A PÁGINA
-                return response.json();
-            }
-            return Promise.reject(response);
-        }).catch(function (error) {
-            console.warn('Erro ao inserir estabelecimento.', error);
-        });
     }
 })
+
+async function postOrder(orders){
+    let insertOrderUrl = 'http://localhost:8080/inserirPedido';
+    fetch(insertOrderUrl, {
+        method: 'POST',
+        body: JSON.stringify(orders),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    }).then(function (response) {
+        if (response.ok) {
+            console.log("Estabelecimento cadastrado com sucesso!")
+            sessionStorage.setItem('numeroPedido', orders.numero_pedido);
+            window.location.href = '../carrinho/carrinho.html';
+            return response.json();
+        }
+        return Promise.reject(response);
+    }).catch(function (error) {
+        console.warn('Erro ao inserir estabelecimento.', error);
+    });
+}
 
 
 

@@ -12,13 +12,16 @@ async function getProducts(id) {
 let itens;
 // Carrega os produtos do estabelecimento
 async function renderProducts() {
+      itens = [];
       var estabilishmentSessionId = JSON.parse(sessionStorage.getItem('estabelecimento'));
-      itens = await getProducts(1);
+      
+      itens = await getProducts(estabilishmentSessionId);
+      console.log(itens)
       let html = '';
       itens.itens.map(itens => {
          let htmlSegment = `
             <div class="card-product list" id="${itens.id}">
-               <img class="img-product" src="../../assets/est_${1}/${itens.caminho_imagem}" alt="${itens.descricao}" />
+               <img class="img-product" src="../../assets/est_${estabilishmentSessionId}/${itens.caminho_imagem}" alt="${itens.descricao}" />
                <div class="info">                    
                   <h6>${itens.nome}</h6>
                   <span>R$ ${itens.valor}</span>                        
@@ -39,6 +42,7 @@ async function renderProducts() {
 renderProducts();
 
 async function deleteItem(id){
+   console.log(deleteItemUrl+id)
    fetch(deleteItemUrl+id, {
       method: 'DELETE',
       headers: {
@@ -57,6 +61,7 @@ async function deleteItem(id){
 }
 
 async function editItem(idItem){
+   
    var item
    for(let i = 0; i < itens.itens.length; i++) {
       if(itens.itens[i].id == idItem){

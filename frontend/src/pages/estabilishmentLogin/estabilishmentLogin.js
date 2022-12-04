@@ -1,6 +1,6 @@
 const {ipcRenderer} = require('electron');
 let estabilishments;
-
+sessionStorage. clear();
 async function renderEstablishments() {
    estabilishments = await getEstabilishments();
    console.log(estabilishments);
@@ -11,6 +11,7 @@ renderEstablishments()
 
 let formEstabilishment = document.getElementById('formLoginEstabilishment');
 formEstabilishment.addEventListener('submit', (e) => {
+   sessionStorage.setItem('estabelecimento', '');
    e.preventDefault();
    const data = new FormData(e.target);
    const dataJSON = Object.fromEntries(data.entries());
