@@ -1,10 +1,17 @@
-# COMANDOS PARA RODAR O FRONT (SEPARAR EM TERMINAIS DIFERENTES)
-<!-- Iniciar projeto -->
+# SOBRE O PROJETO
+A aplicação consiste em formas de agilizar o pedido de refeições por estabelecimento, através de dispositivos
+espalhados pelo local, onde o usuário poderá selecionar o alimento desejado e pagar pela aplicação ou pagar no estabelecimento,
+no momento da retirada. Já pelo lado do estabelecimento, o mesmo poderá gerenciar seus produtos e pedidos.
+
+# ----------------------------COMANDOS INICIAIS----------------------------
+# Instalar todas dependências
+npm install
+
+# Comandos para rodar o front (2 terminais)
 npm start
-<!-- iniciar Sass watch -->
 gulp watch
 
-# COMANDOS PARA RODAR O BACK
+# Comandos para rodar o back
 npm start
 
 # ----------------------------MIGRATIONS----------------------------
