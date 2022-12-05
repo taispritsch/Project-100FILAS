@@ -9,31 +9,74 @@
                     1px 0px 0px #BA0505;
 }
 
+.pedido-title{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
 .line{
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.shopping{
+.info{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-around;
+
+    p{
+        margin: 10px;
+    }
+
+
+    .amount{
+        color: #E20000;
+        font-size: 20px;
+    }
+
+    .total{
+        font-size: 20px;
+    }
+}
+
+.value-total{
+    color: #F31C1C;
+    font-size: 34px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* .shopping{
     display: flex;
     flex-direction: row;
     color: white;
     font-size: 18px;
-}
+} */
 
 .total{
     color: white;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 600;
     text-align: center;
 }
 
 .value{
     margin-top: 10px;
+    margin-bottom: 20px;
     color: #F31C1C;
     font-size: 28px;
     font-weight: 600;
     text-align: center;
+
+
+    .total{
+        font-size: 18px;
+        color: white;
+        font-weight: 500;
+    }
 }
 
 .finalizar{
@@ -49,3 +92,48 @@
         font-weight: 600;
         bottom: 10px;
 }
+
+.pay-section{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 20px;
+
+    .pay{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    
+        .img-pay{
+            
+            width: 25%;
+            
+        }
+    }
+
+    .btn-link{
+        float: left;
+    }
+
+    .confirm{
+        width: 237px;
+        height: 40px;
+        font-weight: bold;
+        font-size: rem(18);
+        padding: 10px 20px;
+        border-radius: 20px;
+        text-align: center;
+        float: right;
+        background-color: var(--red);
+        color: var(--white);
+        transition: all 0.5s;
+    }
+
+    .confirm:hover{
+        background-color: #e04131;
+    }
+
+}
+
+
+

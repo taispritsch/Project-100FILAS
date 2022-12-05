@@ -139,6 +139,3 @@ async function postOrder(orders){
         console.warn('Erro ao inserir estabelecimento.', error);
     });
 }
-
-
-

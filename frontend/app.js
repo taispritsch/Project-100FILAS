@@ -10,8 +10,8 @@ function init(){
       webPreferences: {nodeIntegration: true}
    })
 
-   // mainScreen.loadFile('./src/pages/homepage/homepage.html')
-   mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html');
+   mainScreen.loadFile('./src/pages/homepage/homepage.html')
+   // mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html');
    // mainScreen.loadFile('./src/pages/estabilishment/products-list.html');
    // mainScreen.loadFile('./src/pages/estabilishmentLogin/estabilishmentLogin.html');
    // mainScreen.loadFile('./src/pages/products/create-products.html')
