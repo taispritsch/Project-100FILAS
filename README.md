@@ -9,6 +9,7 @@ npm install
 
 # Comandos para rodar o front (2 terminais)
 npm start
+
 gulp watch
 
 # Comandos para rodar o back
