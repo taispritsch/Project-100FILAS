@@ -1,6 +1,3 @@
-# Biblioteca de envio de email
-npm install nodemailer
-
 # COMANDOS PARA RODAR O FRONT (SEPARAR EM TERMINAIS DIFERENTES)
 <!-- Iniciar projeto -->
 npm start
