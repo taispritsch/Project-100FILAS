@@ -1,13 +1,13 @@
 # Biblioteca de envio de email
 npm install nodemailer
 
-# FRONT
+# COMANDOS PARA RODAR O FRONT (SEPARAR EM TERMINAIS DIFERENTES)
 <!-- Iniciar projeto -->
 npm start
 <!-- iniciar Sass watch -->
 gulp watch
 
-# BACK
+# COMANDOS PARA RODAR O BACK
 npm start
 
 # ----------------------------MIGRATIONS----------------------------
