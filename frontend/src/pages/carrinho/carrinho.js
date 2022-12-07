@@ -1,5 +1,5 @@
 var orderNumber = JSON.parse(sessionStorage.getItem('numeroPedido'));
-//console.log(orderNumber);
+console.log(orderNumber);
 
 async function getPedido(id) {
     let url = 'http://localhost:8080/listarPedidoPorNumeroPedido/'+id;
@@ -65,13 +65,27 @@ async function renderPedido() {
         
         gravar.forEach(item => {
 
-            htmlSegment = `
+            /* htmlSegment = `
                 
             <div class="list">
                 <div class="info">                   
                     <p class="amount">${item.quantidade}x</p><p class="item">${item.nome}</p>          
                 </div>
                 <p class="totalItem">R$${item.valorTotal}</p>
+            </div>`; */
+
+            htmlSegment = `
+                
+            <div class="list">
+                <table>
+                    <tr>
+                        <td class="amount">${item.quantidade}x</td>
+                        <td class="item">${item.nome}</td>
+                        <td class="totalItem">R$${item.valorTotal}</td>
+                    </tr>
+                </table>
+
+                
             </div>`;
 
             
@@ -94,12 +108,3 @@ async function renderPedido() {
       content.innerHTML = htmlValue;
 }    
 renderPedido();
-
-
-/* pagamento */
-
-/* window.setTimeout('backToHome()', 50000);
-
-function backToHome(){
-    window.location.href = '../homepage/homepage.html';
-} */

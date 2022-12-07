@@ -1,6 +1,8 @@
+
+
 async function getOrders(id) {
    let url = 'http://localhost:8080/listarPedidosPorEstabelecimento/'+id;
-   // let url = 'http://localhost:8080/listarPedido/'+id;
+   //let url = 'http://localhost:8080/listarPedidos';
    try {
        let res = await fetch(url);
        return await res.json();
@@ -12,7 +14,12 @@ async function getOrders(id) {
 // Carrega os pedidos do estabelecimento
 async function renderOrderList() {
    var estabilishmentSessionId = JSON.parse(sessionStorage.getItem('estabelecimento'));
-   let orders = await getOrders(estabilishmentSessionId);
+   var orderNumber = JSON.parse(sessionStorage.getItem('numeroPedido'));
+   console.log(estabilishmentSessionId)
+   console.log(orderNumber)
+   
+   orders = await getOrders(estabilishmentSessionId);
+   console.log(orders)
    let html = '';
    orders.pedidos.map(orders => {
       let htmlSegment = `<div class="accordion">

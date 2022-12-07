@@ -153,4 +153,46 @@
         background-color: var(--light-red);
         cursor: pointer;
     }
+
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        align-items: center;
+        justify-content: center;
+        display: flex!important;
+     }
+  
+     #myBtn {
+        color: var(--white);
+        font-weight: bold;
+        font-size: 1.25rem;
+        width: 46px;
+        height: 46px;
+        border-radius: 30px;
+        background-color: var(--dark-red);
+        transition: all 0.5s;
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        top: 96px;
+        left: 14px;
+      }
+  
+      #myBtn:hover{
+        background-color: var(--light-red);
+      }
+}
+
+@media screen and (max-width: 550px){
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .btn-link{
+            margin: 10px;
+        }
+    }
+      
 }

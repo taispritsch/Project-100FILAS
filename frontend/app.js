@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, Tray } = require('electron');
 
 const establishmentScreen = 'listOfEstablishments'
 const establishmentProducts = 'establishment'
@@ -7,16 +7,16 @@ function init(){
    mainScreen = new BrowserWindow({
       width: 1400,
       height: 720,
+      icon: './src/public/icon.png',
       webPreferences: {nodeIntegration: true}
    })
 
    mainScreen.loadFile('./src/pages/homepage/homepage.html')
    // mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html');
    // mainScreen.loadFile('./src/pages/estabilishment/products-list.html');
+   mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html');
    // mainScreen.loadFile('./src/pages/estabilishmentLogin/estabilishmentLogin.html');
-   // mainScreen.loadFile('./src/pages/products/create-products.html')
-   // mainScreen.openDevTools();
-   // mainScreen.loadFile('./src/pages/homepage/homepage.html')
+   mainScreen.openDevTools();
 }
 // modify your existing createWindow() function
 const createWindow = (screenName, content) => {
@@ -35,7 +35,7 @@ const createWindow = (screenName, content) => {
          mainScreen.loadFile('./src/pages/clientLogin/clientLogin.html')
          break;
       }
-      mainScreen.openDevTools();
+      // mainScreen.openDevTools();
 }
 
 ipcMain.on('nextStep', (e, args) => {
