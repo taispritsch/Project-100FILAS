@@ -33,9 +33,6 @@
       align-items: center;
       justify-content: center;
       display: flex!important;
-   }
-
-   #myBtn {
       color: var(--white);
       font-weight: bold;
       font-size: 1.25rem;
@@ -49,9 +46,9 @@
       bottom: 20px;
       top: 96px;
       left: 14px;
-    }
+   }
 
-    #myBtn:hover{
+    .material-symbols-outlined:hover{
       background-color: var(--light-red);
     }
     
