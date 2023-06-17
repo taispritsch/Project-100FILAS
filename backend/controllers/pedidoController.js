@@ -13,23 +13,31 @@ module.exports = {
 
             const nodemailer = require('nodemailer');
 
-            var transport = nodemailer.createTransport({
+            let transporter = nodemailer.createTransport({ 
+                service: 'gmail', 
+                auth: { 
+                   user: 'tais.pritsch@universo.univates.br', 
+                   pass: 'tais2001prit' 
+                 } 
+                });
+
+            /* var transport = nodemailer.createTransport({
                 host: "smtp.mailtrap.io",
                 port: 2525,
                 auth: {
                     user: "d060b33c41cd14",
                     pass: "e92ccea6efde17"
                 }
-            });
-
+            }); */
+            
             const mailOptions = {
-                from: 'gabrielli.sartori@universo.univates.br',
-                to: 'gabrielli.sartori@universo.univates.br',
+                from: 'tais.pritsch@universo.univates.br',
+                to: 'tais.pritsch@universo.univates.br',
                 subject: 'Detalhes do seu Pedido',
-                html: "Olá, " + pedido.dataValues.nome_cliente + "! <br><br>Seu pedido foi finalizado com sucesso."
+                html: "Olá, " + pedido.dataValues.nome_cliente + "! <br><br>Seu pedido foi finalizado com sucesso.<br><p><strong>Quantidade: </strong></p>"+ pedido.dataValues.quantidade_item + "<p><strong>Valor Total: </strong></p>" + pedido.dataValues.valor_total
             };
 
-            transport.sendMail(mailOptions, function (error, info) {
+            transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
                     console.log(error);
                 } else {

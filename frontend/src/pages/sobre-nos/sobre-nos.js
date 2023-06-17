@@ -1,4 +1,4 @@
-const sobre = document.querySelectorAll('.nos');
+const sobre = document.querySelectorAll('.content');
 
 function easterEgg(e){
     sobre.forEach((nos)=>{

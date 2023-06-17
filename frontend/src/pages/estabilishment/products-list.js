@@ -21,7 +21,7 @@ async function renderProducts() {
       itens.itens.map(itens => {
          let htmlSegment = `
             <div class="card-product list" id="${itens.id}">
-               <img class="img-product" src="../../assets/est_${estabilishmentSessionId}/${itens.caminho_imagem}" alt="${itens.descricao}" />
+               <img class="img-product" src="../../assets/${itens.caminho_imagem}" alt="${itens.descricao}" />
                <div class="info">                    
                   <h6>${itens.nome}</h6>
                   <span>R$ ${itens.valor}</span>                        

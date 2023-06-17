@@ -10,7 +10,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 1,
         tipo_item: 'Bebida',
-        caminho_imagem: 'coca-cola-1l.webp',
+        caminho_imagem: 'est_1/coca-cola-1l.webp',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -21,7 +21,7 @@ module.exports = {
         quantidade: 30,
         estabelecimento_id: 1,
         tipo_item: 'Doce',
-        caminho_imagem: 'doce-de-banana.jpg',
+        caminho_imagem: 'est_1/doce-de-banana.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -32,7 +32,7 @@ module.exports = {
         quantidade: 15,
         estabelecimento_id: 1,
         tipo_item: 'Salgado',
-        caminho_imagem: 'pao-queijo.png',
+        caminho_imagem: 'est_1/pao-queijo.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -43,7 +43,7 @@ module.exports = {
         quantidade: 15,
         estabelecimento_id: 1,
         tipo_item: 'Salgado',
-        caminho_imagem: 'pastel.png',
+        caminho_imagem: 'est_1/pastel.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -54,7 +54,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 1,
         tipo_item: 'Salgado',
-        caminho_imagem: 'pizza-calabresa-fatia.png',
+        caminho_imagem: 'est_1/pizza-calabresa-fatia.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -65,7 +65,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 2,
         tipo_item: 'Doce',
-        caminho_imagem: 'brigadeiro-com-mem.webp',
+        caminho_imagem: 'est_2/brigadeiro-com-mem.webp',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -76,7 +76,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 2,
         tipo_item: 'Salgado',
-        caminho_imagem: 'croassaint.png',
+        caminho_imagem: 'est_2/croassaint.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -87,7 +87,7 @@ module.exports = {
         quantidade: 5,
         estabelecimento_id: 2,
         tipo_item: 'Bebida',
-        caminho_imagem: 'suco-de-abacaxi.jpg',
+        caminho_imagem: 'est_2/suco-de-abacaxi.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -98,7 +98,7 @@ module.exports = {
         quantidade: 5,
         estabelecimento_id: 3,
         tipo_item: 'Bebida',
-        caminho_imagem: 'limonada.webp',
+        caminho_imagem: 'est_3/limonada.webp',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -109,7 +109,7 @@ module.exports = {
         quantidade: 10,
         estabelecimento_id: 3,
         tipo_item: 'Salgado',
-        caminho_imagem: 'salgadinho-de-bacon.jpeg',
+        caminho_imagem: 'est_3/salgadinho-de-bacon.jpeg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -120,7 +120,7 @@ module.exports = {
         quantidade: 15,
         estabelecimento_id: 3,
         tipo_item: 'Doce',
-        caminho_imagem: 'torta-de-bolacha.jpg',
+        caminho_imagem: 'est_3/torta-de-bolacha.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },

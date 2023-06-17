@@ -28,11 +28,12 @@ ipcRenderer.on('establishment', (e, args) => {
     async function renderProducts(param) {
         if(param){
             let itens = await getProducts(param.id);
+            console.log(param.id)
             let html = '';
             itens.itens.map(itens => {
                 let htmlSegment = `
                     <div class="card-product" id="${itens.id}">
-                        <img class="img-product" src="../../assets/est_${param}/${itens.caminho_imagem}" alt="${itens.descricao}" />
+                        <img class="img-product" src="../../assets/${itens.caminho_imagem}" alt="${itens.descricao}" />
                         <div class="info">                    
                             <h6>${itens.nome}</h6>
                             <span>R$ ${itens.valor}</span>                        
